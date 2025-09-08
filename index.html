@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Venus-Website</title>
+</head>
+
+<body class=`${isDark ? bg-black : bg-whiyte} m-0 p-0 overflow-x-hidden box-border`>
+    <header class="w-full flex justify-center ">
+        <div class="xl:w-[82%] lg:w-[97%] w-[90%] h-24  flex items-center justify-between ">
+            <img class="xl:block hidden absolute top-2 -left-18" src="./assets/homepage/traingle.svg" alt="">
+            <div class="flex items-center h-full">
+                <span class="uppercase text-xl lg:text-2xl text-black font-bold flex items-center h-full font-title"><span
+                        class="text-[#09b850] text-4xl  lg:text-5xl font-bold">V</span>enus global</span>
+            </div>
+            <div class="lg:hidden flex items-center justify-center text-2xl cursor-pointer h-full bg-red">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <nav class="hidden  flex-1 lg:flex justify-center">
+                <ul class="flex justify-evenly items-center uppercase w-[80%] min-w-[622px]">
+                    <li
+                        class="cursor-pointer text-[#606261] hover:text-[#09b850] transition-colors duration-100 ease-in">
+                        home</li>
+                    <li
+                        class="cursor-pointer text-[#606261]  hover:text-[#09b850] transition-colors duration-100 ease-in">
+                        about us</li>
+                    <li
+                        class="cursor-pointer text-[#606261] hover:text-[#09b850] transition-colors duration-100 ease-in">
+                        services</li>
+                    <li
+                        class="cursor-pointer text-[#606261] hover:text-[#09b850] transition-colors duration-100 ease-in">
+                        products</li>
+                    <li
+                        class="cursor-pointer text-[#606261] hover:text-[#09b850] transition-colors duration-100 ease-in">
+                        careers</li>
+                    <li
+                        class="cursor-pointer text-[#606261] hover:text-[#09b850] transition-colors duration-100 ease-in">
+                        contact us</li>
+                </ul>
+            </nav>
+            <button
+                class="bg-[#09b850] lg:block hidden py-2 px-6 rounded text-white hover:bg-[#0dad4d] transition-all duration-75 ease-in-out cursor-pointer ">
+                Login
+            </button>
+        </div>
+    </header>
+    <main class="w-full flex flex-col items-center">
+        <section class="xl:w-[82%] lg:w-[97%] w-[90%] max-w-[1250px] flex flex-col items-center lg:flex-row gap-10 lg:justify-center my-4 ">
+            <div class="lg:w-[60%] w-full flex flex-col sm:items-start pt-14 pb-8 sm:pb-30 gap-18">
+                <div
+                    class="rounded bg-[#f8f8f8] opacity-70 shadow-lg w-fit px-12 py-2 hover:shadow-xl transition-shadow duration-100 ease-linear">
+                    🤩 Award-winning services</div>
+                <h1 class="lg:text-6xl md:text-8xl text-6xl">We specialize in <br>
+                    <span id="typing-text" class="text-[#09b850]"></span>
+                </h1>
+                <div class="text-[#606261]">We specialize in scanning & digitization, offer a wide range of products
+                    from furniture to clothing, and are expanding with a dynamic IT department to shape the future
+                    of technology.</div>
+                <div class="flex gap-8 sm:gap-0 flex-col sm:flex-row sm:justify-between w-[90%] sm:items-center">
+                    <div class="flex items-center gap-2 shadow-lg rounded py-2 justify-center sm:shadow-none sm:py-0 ">
+                        <span class="material-symbols-outlined text-[#09b850] icon-size">
+                            scan
+                        </span>
+                        <span class="font-semibold">End-to-End Digitization</span>
+                    </div>
+                    <div class="flex items-center gap-2 shadow-lg rounded py-2 justify-center sm:shadow-none sm:py-0">
+                        <span class="material-symbols-outlined icon-size text-[#09b850]">
+                            computer
+                        </span>
+                        <span class="font-semibold">Future-Ready IT Solutions</span>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:w-[40%] lg:max-h-full h-[600px] w-[90%]  rounded-lg relative bg-cover bg-center  bg-no-repeat  bg-[url(./assets/homepage/hero-img-new-2.jpg)]">
+                <div class="absolute -top-6 -right-5 md:-right-16 lg:-right-4 xl:-right-16 bg-[#fafafa] rounded-lg shadow-md p-4 "><span
+                        class="text-[#09b850] font-lg font-semibold">6M+</span> Documents Digitized</div>
+                <div class=" p-4 bg-[#202124] rounded-lg absolute bottom-10 -left-6 md:-left-16 text-white shadow-xl">
+                    Growing IT Team
+                </div>
+            </div>
+            </div>
+        </section>
+        <section class="xl:w-[82%] lg:w-[97%] w-[90%] overflow-hidden my-18 ">
+            <div class="flex sm:flex-row flex-col gap-5 sm:gap-0 items-center">
+                <div class="text-2xl font-bold sm:mr-8 shrink-0">Trusted Partners</div>
+
+                <!-- Scrolling container -->
+                <div class="flex-1 overflow-hidden relative">
+                    <div class="flex gap-10 animate-scroll">
+                        <img class="lg:h-30 lg:w-30 h-22 w-22 hover:scale-105  transition-all duration-300 ease-out"
+                            src="./assets/homepage/client/client1.png" alt="">
+                        <img class="lg:h-30 lg:w-30 h-22 w-22 hover:scale-105  transition-all duration-300 ease-out"
+                            src="./assets/homepage/client/client2.png" alt="">
+                        <img class="lg:h-30 lg:w-30 h-22 w-22 hover:scale-105  transition-all duration-300 ease-out"
+                            src="./assets/homepage/client/client3.png" alt="">
+                        <img class="lg:h-30 lg:w-30 h-22 w-22 hover:scale-105  transition-all duration-300 ease-out"
+                            src="./assets/homepage/client/client4.png" alt="">
+                        <img class="lg:h-30 lg:w-30 h-22 w-22 hover:scale-105  transition-all duration-300 ease-out"
+                            src="./assets/homepage/client/client5.png" alt="">
+                        <img class="lg:h-30 lg:w-30 h-22 w-22 hover:scale-105  transition-all duration-300 ease-out"
+                            src="./assets/homepage/client/client6.png" alt="">
+                        <img class="lg:h-30 lg:w-30 h-22 w-22 hover:scale-105  transition-all duration-300 ease-out"
+                            src="./assets/homepage/client/client7.png" alt="">
+                        <!-- Duplicate for smooth loop -->
+                        <img class="lg:h-30 lg:w-30 h-22 w-22 hover:scale-105 transition-all duration-300 ease-out"
+                            src="./assets/homepage/client/client1.png" alt="">
+                        <img class="lg:h-30 lg:w-30 h-22 w-22 hover:scale-105 transition-all duration-300 ease-out"
+                            src="./assets/homepage/client/client2.png" alt="">
+                        <img class="lg:h-30 lg:w-30 h-22 w-22 hover:scale-105 transition-all duration-300 ease-out"
+                            src="./assets/homepage/client/client3.png" alt="">
+                        <img class="lg:h-30 lg:w-30 h-22 w-22 hover:scale-105 transition-all duration-300 ease-out"
+                            src="./assets/homepage/client/client4.png" alt="">
+                        <img class="lg:h-30 lg:w-30 h-22 w-22 hover:scale-105 transition-all duration-300 ease-out"
+                            src="./assets/homepage/client/client5.png" alt="">
+                        <img class="lg:h-30 lg:w-30 h-22 w-22 hover:scale-105 transition-all duration-300 ease-out"
+                            src="./assets/homepage/client/client6.png" alt="">
+                        <img class="lg:h-30 lg:w-30 h-22 w-22 hover:scale-105 transition-all duration-300 ease-out"
+                            src="./assets/homepage/client/client7.png" alt="">
+                    </div>
+                    <div
+                        class="absolute top-0 left-0 w-16 h-full bg-gradient-to-r from-white  to-transparent pointer-events-none">
+                    </div>
+                    <!-- Gradient Fade (Right) -->
+                    <div
+                        class="absolute top-0 right-0 w-16 h-full bg-gradient-to-l from-white to-transparent pointer-events-none">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="xl:w-[82%] lg:w-[97%] w-[90%] flex flex-col gap-10 lg:gap-0 lg:flex-row lg:justify-between my-10">
+            <div class="w-full lg:w-[53%] flex sm:flex-row flex-col sm:justify-between gap-6 sm:gap-0">
+                <div class="sm:w-[48%] w-full">
+                    <img class="w-full rounded-md" src="./assets/homepage/office.jpg" alt="office-img">
+                </div>
+                <div class="sm:w-[48%] w-full flex flex-col gap-10 bg-white">
+                    <div class="flex gap-4 w-full justify-center">
+                        <div
+                            class="bg-[#202124] w-1/2 rounded-md flex flex-col text-white items-center justify-center py-5 px-2">
+                            <span class="text-2xl font-bold">5+ Years
+                            </span>
+                            <span class="w-full text-center">of Trusted Services</span>
+                        </div>
+                        <div
+                            class="bg-[#09b850] w-1/2 text-xl py-5 px-2 flex items-center justify-center text-center rounded-md font-bold text-white">
+                            Multiple Govt. Clients</div>
+                    </div>
+                    <img class="w-full rounded-md" src="./assets/homepage/cool-1.png" alt="cool-img">
+                </div>
+            </div>
+            <div class="lg:w-[42%] w-full flex flex-col justify-center gap-10">
+                <div class="bg-[#f8f8f8] rounded-lg shadow-md w-fit py-2 px-4">Empowering Businesses with Technology
+                </div>
+                <div class="sm:text-5xl text-3xl">Delivering seamless scanning, secure digitalization & modern software solutions.
+                </div>
+                <div class="text-[#606261] text-[16px] ">we specialize in document scanning & digitalization for
+                    government and
+                    enterprises, while also offering a diverse range of products including electronics, furniture,
+                    clothing, and stationery. Our new software development division is dedicated to building custom,
+                    future-ready applications that help organizations grow and innovate.</div>
+                <ul class="text-[16px] flex flex-col gap-5">
+                    <li class="flex gap-4 items-center"><span><svg width="1em" height="1em" viewBox="0 0 16 16"
+                                fill="currentColor" role="img" focusable="false" class="text-[#09b850]">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708">
+                                </path>
+                            </svg>
+                        </span><span>Growing Software Development Team</span></li>
+                    <li class="flex gap-4 items-center"><span><svg width="1em" height="1em" viewBox="0 0 16 16"
+                                fill="currentColor" role="img" focusable="false" class="text-[#09b850]">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708">
+                                </path>
+                            </svg>
+                        </span><span>Trusted by Government & Corporate Clients</span></li>
+                    <li class="flex gap-4 items-center"><span><svg width="1em" height="1em" viewBox="0 0 16 16"
+                                fill="currentColor" role="img" focusable="false" class="text-[#09b850]">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708">
+                                </path>
+                            </svg>
+                        </span><span>Expertise in Scanning & Digitalization</span></li>
+                    <li class="flex gap-4 items-center"><span><svg width="1em" height="1em" viewBox="0 0 16 16"
+                                fill="currentColor" role="img" focusable="false" class="text-[#09b850]">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708">
+                                </path>
+                            </svg>
+                        </span><span>Wide Range of Products Across Categories</span></li>
+                </ul>
+                <a class="bg-[#202124] py-2 px-4 text-lg rounded-lg text-white w-fit hover:bg-[#414245] cursor-pointer">About
+                    More</a>
+            </div>
+        </section>
+        <section class="bg-[#202124] w-full flex justify-center overflow-y-hidden overflow-x-hidden relative">
+            <svg class="fill-white absolute top-0 -right-40" width="768.8px" height="1386px" viewBox="0 0 768.8 1386"
+                xml:space="preserve" style="opacity: 0.07;">
+                <path
+                    d="M647.6,748.4c1.9,6,3.3,12.2,3.8,18.4c2.2,18.9-0.7,38.9-9.1,61.5c-15.6,41.9-47.8,85.3-81.6,131.5 c-46.1,63.1-94.5,128.4-108.1,199.1c-15.7,80.6,17.2,154.5,101.1,226.1l-0.4,0.4c-188.1-160.7-84.4-301.8,7.3-426.2 c33.9-46,65.8-89.6,81.4-131.2c17.5-46.8,11.8-84.9-18-119.6c-39.6-46.6-86.5-86.9-135.7-129.3C339.1,450.3,184.9,317.3,240.6,4.6 l0.6,0.1C185.7,317,339.7,450.1,488.7,578.7c49.3,42.7,95.8,82.8,135.8,129.6C635.5,721,643.1,734.2,647.6,748.4z">
+                </path>
+                <path
+                    d="M636.2,722.3c23.4,73.7-25.2,149.2-76.5,228.7c-40.8,63.5-83,129.1-91.9,198.3c-9.9,78.2,25.9,150,109.6,219 l-0.4,0.7c-45-37.1-75.4-74-93.5-112.7c-15.9-34.5-21.2-69.5-16.5-106.8c8.9-69.5,51-135.1,91.9-198.6 C616.4,861.3,671,776.5,622,694.1c-39.6-66.6-102.4-118.8-169-174.2c-68.7-57.3-140-116.4-188.1-195.3 c-25.9-42.6-42.9-86.9-51.5-135.2c-9.8-54.6-9.2-112.9,2-177.9l0.6,0.1c-46.5,271.4,97.9,391.7,237.5,507.9 c66.7,55.4,129.4,107.7,169.1,174.5C628.8,702.7,633.1,712.6,636.2,722.3z">
+                </path>
+                <path
+                    d="M624.6,687.5c11.7,37,10.5,76.9-3.8,121.9c-13.7,43.3-38.1,87.4-61.8,130.2c-35.7,64.2-72.5,130.4-76.3,198.6 c-4.4,76.5,34.5,146.1,118.7,213.3l-0.6,0.8c-188.5-150.2-114.3-284-42.6-413.2c49.3-88.7,95.7-172.7,62.4-260.6 c-31.5-83-108.5-141.7-189.7-204C363,422.5,293.2,369,244.9,298c-26.1-38.5-43.3-78.4-53-121.8C181.2,127,180.6,75,190.2,16.8l0.9,0 C151,259.3,293.5,368.3,431.2,473.7c81.5,62.2,158.3,121.3,190.1,204.2C622.6,681.2,623.6,684.4,624.6,687.5z">
+                </path>
+                <path
+                    d="M614.6,642.5c2.2,6.8,4.1,13.7,5.4,20.8c18.1,91.8-22.3,177.4-61.1,260.2c-32.2,68.8-62.8,133.6-62.1,201.3 c0.8,76.3,41.6,143,128.7,209.2l-0.6,0.8c-46.1-35.1-78.8-70-100.3-106.8c-19.1-32.9-28.6-66.6-28.9-103.1 c-0.6-67.6,29.8-132.7,62.3-201.6c38.8-82.7,79-168.2,60.9-259.8c-19.1-96.7-109.2-158.6-204.5-224.2 c-68.3-47.1-139.2-95.6-188.9-160.4c-56.1-73.2-75.8-157-60.3-255.8l0.9,0c-34.9,220.7,109.1,319.7,248.6,415.2 C503.4,499.3,587.6,557.2,614.6,642.5z">
+                </path>
+                <path
+                    d="M610.8,603.9c4.4,13.9,7.1,28.7,7.8,44.6c3.6,91.5-28.4,172.7-59.3,251.2c-28.5,72.3-55.1,140.5-50.2,208.8 c5.2,76.6,49.9,143,140.1,208.8l-0.4,0.7c-90.5-66-135.2-132.4-140.8-209.2c-5-68.6,21.9-136.9,50.3-209.4 c30.9-78.5,62.6-159.6,59.1-250.9c-4.2-109-107.3-171.8-216.8-238.5c-70.1-42.7-142.8-87-194.2-146.1 c-58.1-66.8-79.9-143.6-66-234.6l1,0.3c-30.7,202.9,117.1,292.9,259.8,379.6C494.9,466.2,584.1,520.8,610.8,603.9z">
+                </path>
+                <path
+                    d="M610.7,570.7c6.1,19.2,8.4,40.1,6,62.8c-8.3,84.1-33.8,160.3-55.9,227.3c-27.6,83.2-51.4,154.9-42.7,226 c9.5,78.4,58.7,146,155,213l-0.6,0.8c-96.5-66.7-145.8-134.6-155.4-213.2c-8.8-71.4,15.2-143.4,42.8-226.7 c22.3-67.1,47.6-143.3,55.9-227.3c12-120.7-104.2-182.9-227.6-248.9c-72.3-38.6-147.1-78.7-200.6-132.7 c-60.6-61-84.2-131.8-72-216.2l1.2,0.2C89.9,223.5,242,305,389.1,383.7C488.9,437.2,584.6,488.6,610.7,570.7z">
+                </path>
+                <path
+                    d="M613,540.8c7.3,23.1,8.5,48.7,1.9,77.9c-14,63.3-31.8,122.1-47.4,173.8c-30,99.3-56,185.2-45,263.4 c11.7,84.3,67.2,156.6,174.2,227.2l-0.5,1c-56.6-37.2-98.1-74.3-126.8-113.1c-26.6-35.7-42.3-73.2-47.9-114.7 c-11.1-78.8,14.9-164.4,45.1-264c15.7-51.7,33.4-110.5,47.5-173.6C643.5,486.7,513.4,426,375.8,361.9 c-74.9-34.9-152.2-71-207.6-120.1c-63-55.7-88.3-121-78-199.6l1.1-0.1c-10.5,78.1,14.8,143.1,77.7,198.6 c55.4,49.1,132.7,85.3,207.5,119.9C484,410.7,587.1,458.9,613,540.8z">
+                </path>
+                <path
+                    d="M617.2,512.9c8.3,26.2,8,56.1-3.5,90.9c-5.6,17.1-11.2,33.9-16.5,50c-47.8,143.4-85.7,256.4-76.5,351.9 c9.7,99.7,71.5,180,200.4,260.4l-0.5,1c-67.3-41.9-115.6-83.2-148.1-126.6c-30.9-41-48.1-85.2-52.8-134.8 c-9.3-95.8,28.8-208.9,76.6-352.3c5.6-16.2,10.9-32.9,16.5-50c47.5-143.5-96.3-201.6-248.6-263.1c-77.7-31.1-157.6-63.5-215.4-108.2 C83.3,181.7,56.1,121.4,65.2,48l1.2,0.2c-9,72.7,18.1,132.8,83.1,183c57.8,44.6,137.6,76.8,214.8,108.1 C480.2,386,591.2,431,617.2,512.9z">
+                </path>
+                <path
+                    d="M622.4,486.7c9.6,30.2,6.1,63.9-10.3,102.3C465,933,463,1084.4,745.1,1249l-0.8,1.1 c-143.5-83.6-211.5-162.5-227.9-263.5c-17.4-106.8,25.3-236.4,94.5-398.1c18.6-43.4,20.4-80.4,6-113.1 C583.7,401.1,471.1,362,351.5,320.8C189.7,265,22.7,207.3,40,54.3l1.2,0.2C23.8,206.4,190.5,263.8,351.7,319.6 C471.4,361,584.6,400,617.6,475C619.7,478.9,621.2,482.8,622.4,486.7z">
+                </path>
+                <path
+                    d="M628.6,461.4c10.3,32.5,4.4,69.6-18,112.8c-93.9,182.2-122.9,308.3-94.5,408.8c26.1,92.5,101.7,167,252.8,249 l-0.8,1.1c-151.5-82.5-227.2-157.2-253.6-249.9c-28.5-100.7,0.5-227.1,94.5-409.9c24.3-47.3,29-87.1,14.3-121.5 c-32.7-76-155.1-112-284.6-149.7C172.6,253.7,0.1,203.5,15.1,60.4l1.2,0.2c-14.6,141.8,157,191.9,323.2,240.6 c129.9,37.9,252.4,73.9,285.3,150.4C626.2,454.9,627.5,458,628.6,461.4z">
+                </path>
+            </svg>
+            <div class="flex flex-col items-center relative xl:w-[82%] lg:w-[97%] w-[90%] py-10 ">
+                <span class="bg-[#292a2d]  py-2 px-4 text-center rounded text-white my-10">Smart Solutions, Trusted
+                    Results</span>
+                <h3 class="lg:text-7xl sm:text-5xl text-4xl text-white lg:w-[60%] sm:w-[80%] w-full  text-center my-8">We specialize in the following services</h3>
+                <div class="flex flex-row flex-wrap justify-between w-full gap-1 gap-y-12 my-18">
+                    <div
+                        class="bg-[#292a2d]  text-white w-full sm:w-[48%] lg:w-[23%] flex flex-col items-center  rounded-md group relative pb-8">
+                        <div class="absolute -top-8 bg-white rounded-full p-4 left-6 flex items-center justify-center">
+                            <span class="material-symbols-outlined icon-size-1 text-[#09b850]">
+                                document_scanner
+                            </span>
+                        </div>
+                        <div class="w-[85%] mt-6">
+                            <div class="my-10 flex flex-col gap-4">
+                                <h6
+                                    class="text-3xl group-hover:text-[#09b850] transition-colors duration-150 group-hover:text-shadow-lg  ease-in">
+                                    Scanning & Digitization</h6>
+                                <p>Converting physical files into secure, digital formats.</p>
+                            </div>
+                            <a
+                                class="flex items-center gap-3 text-[#09b850] text-lg hover:gap-5 transition-all duration-150 ease-in-out cursor-pointer absolute bottom-3"><span>Know
+                                    more</span><span class="material-symbols-outlined" style="font-size: 30px;">
+                                    arrow_right_alt
+                                </span></a>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-[#292a2d]  text-white relative w-full sm:w-[48%] lg:w-[23%] flex flex-col pb-8  items-center rounded-md group">
+                        <div class="absolute -top-8 bg-white rounded-full p-4 left-6 flex items-center justify-center">
+                            <span class="material-symbols-outlined icon-size-1 text-[#09b850]">
+                                folder_open
+                            </span>
+                        </div>
+                        <div class="w-[85%] mt-6">
+                            <div class="my-10 flex flex-col gap-4">
+                                <h6
+                                    class="text-3xl group-hover:text-[#09b850] transition-colors duration-150 group-hover:text-shadow-lg  ease-in">
+                                    Data Management</h6>
+                                <p>Organizing, storing & retrieving records with ease.</p>
+                            </div>
+                            <a
+                                class="flex items-center gap-3 text-[#09b850] text-lg hover:gap-5 transition-all duration-150 ease-in-out cursor-pointer absolute bottom-3"><span>Know
+                                    more</span><span class="material-symbols-outlined" style="font-size: 30px;">
+                                    arrow_right_alt
+                                </span></a>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-[#292a2d]  text-white relative w-full sm:w-[48%] lg:w-[23%] flex flex-col pb-8  items-center rounded-md group">
+                        <div class="absolute -top-8 bg-white rounded-full p-4 left-6 flex items-center justify-center">
+                            <span class="material-symbols-outlined icon-size-1 text-[#09b850]">
+                                shopping_bag
+                            </span>
+                        </div>
+                        <div class="w-[85%] mt-6">
+                            <div class="my-10 flex flex-col gap-4">
+                                <h6
+                                    class="text-3xl group-hover:text-[#09b850] transition-colors duration-150 group-hover:text-shadow-lg  ease-in">
+                                    Product Supply</h6>
+                                <p>Quality furniture, electronics, clothing & more.</p>
+                            </div>
+                            <a
+                                class="flex items-center gap-3 text-[#09b850] text-lg hover:gap-5 transition-all duration-150 ease-in-out cursor-pointer absolute bottom-3"><span>Know
+                                    more</span><span class="material-symbols-outlined" style="font-size: 30px;">
+                                    arrow_right_alt
+                                </span></a>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-[#292a2d]  text-white relative w-full sm:w-[48%] lg:w-[23%] flex flex-col pb-8  items-center rounded-md group">
+                        <div class="absolute -top-8 bg-white rounded-full p-4 left-6 flex items-center justify-center">
+                            <span class="material-symbols-outlined icon-size-1 text-[#09b850]">
+                                edit_note
+                            </span>
+                        </div>
+                        <div class="w-[85%] mt-6">
+                            <div class="my-10 flex flex-col gap-4">
+                                <h6
+                                    class="text-3xl group-hover:text-[#09b850] transition-colors duration-150 group-hover:text-shadow-lg  ease-in">
+                                    Stationery & Office Needs</h6>
+                                <p>Supplying everyday essentials for smooth operations.</p>
+                            </div>
+                            <a
+                                class="flex items-center gap-3 text-[#09b850] text-lg hover:gap-5 transition-all duration-150 ease-in-out cursor-pointer absolute bottom-3"><span>Know
+                                    more</span><span class="material-symbols-outlined" style="font-size: 30px;">
+                                    arrow_right_alt
+                                </span></a>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-[#292a2d]  text-white relative w-full sm:w-[48%] lg:w-[23%] flex flex-col pb-8  items-center rounded-md group">
+                        <div class="absolute -top-8 bg-white rounded-full p-4 left-6 flex items-center justify-center">
+                            <span class="material-symbols-outlined icon-size-1 text-[#09b850]">
+                                language
+                            </span>
+                        </div>
+                        <div class="w-[85%] mt-6">
+                            <div class="my-10 flex flex-col gap-4">
+                                <h6
+                                    class="text-3xl group-hover:text-[#09b850] transition-colors duration-150 group-hover:text-shadow-lg  ease-in">
+                                    Web Development</h6>
+                                <p>Building fast, modern & user-friendly websites.</p>
+                            </div>
+                            <a
+                                class="flex items-center gap-3 text-[#09b850] text-lg hover:gap-5 transition-all duration-150 ease-in-out cursor-pointer absolute bottom-3"><span>Know
+                                    more</span><span class="material-symbols-outlined" style="font-size: 30px;">
+                                    arrow_right_alt
+                                </span></a>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-[#292a2d]  text-white relative w-full sm:w-[48%] lg:w-[23%] flex flex-col pb-8  items-center rounded-md group">
+                        <div class="absolute -top-8 bg-white rounded-full p-4 left-6 flex items-center justify-center">
+                            <span class="material-symbols-outlined icon-size-1 text-[#09b850]">
+                                developer_mode
+                            </span>
+                        </div>
+                        <div class="w-[85%] mt-6">
+                            <div class="my-10 flex flex-col gap-4">
+                                <h6
+                                    class="text-3xl group-hover:text-[#09b850] transition-colors duration-150 group-hover:text-shadow-lg  ease-in">
+                                    Software Development</h6>
+                                <p>Custom solutions to optimize business workflows.</p>
+                            </div>
+                            <a
+                                class="flex items-center gap-3 text-[#09b850] text-lg hover:gap-5 transition-all duration-150 ease-in-out cursor-pointer absolute bottom-3"><span>Know
+                                    more</span><span class="material-symbols-outlined" style="font-size: 30px;">
+                                    arrow_right_alt
+                                </span></a>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-[#292a2d]  text-white relative w-full sm:w-[48%] lg:w-[23%] flex flex-col pb-8  items-center rounded-md group">
+                        <div class="absolute -top-8 bg-white rounded-full p-4 left-6 flex items-center justify-center">
+                            <span class="material-symbols-outlined icon-size-1 text-[#09b850]">
+                                support_agent
+                            </span>
+                        </div>
+                        <div class="w-[85%] mt-6">
+                            <div class="my-10 flex flex-col gap-4">
+                                <h6
+                                    class="text-3xl group-hover:text-[#09b850] transition-colors duration-150 group-hover:text-shadow-lg  ease-in">
+                                    IT Consulting</h6>
+                                <p>Helping businesses adopt the right digital strategies.</p>
+                            </div>
+                            <a
+                                class="flex items-center gap-3 text-[#09b850] text-lg hover:gap-5 transition-all duration-150 ease-in-out cursor-pointer absolute bottom-3"><span>Know
+                                    more</span><span class="material-symbols-outlined" style="font-size: 30px;">
+                                    arrow_right_alt
+                                </span></a>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-[#292a2d]  text-white relative w-full sm:w-[48%] lg:w-[23%] flex flex-col pb-8  items-center rounded-md group">
+                        <div class="absolute -top-8 bg-white rounded-full p-4 left-6 flex items-center justify-center">
+                            <span class="material-symbols-outlined icon-size-1 text-[#09b850]">
+                                handyman
+                            </span>
+                        </div>
+                        <div class="w-[85%] mt-6">
+                            <div class="my-10 flex flex-col gap-4">
+                                <h6
+                                    class="text-3xl group-hover:text-[#09b850] transition-colors duration-150 group-hover:text-shadow-lg  ease-in">
+                                    Support & Maintenance</h6>
+                                <p>Reliable after-sales and technical assistance.</p>
+                            </div>
+                            <a
+                                class="flex items-center gap-3 text-[#09b850] text-lg hover:gap-5 transition-all duration-150 ease-in-out cursor-pointer absolute bottom-3"><span>Know
+                                    more</span><span class="material-symbols-outlined" style="font-size: 30px;">
+                                    arrow_right_alt
+                                </span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-black  text-white w-full flex flex-col items-center">
+        <div class="xl:w-[82%] lg:w-[97%] w-[90%] flex flex-col  gap-10 lg:gap-0 lg:flex-row lg:justify-between my-8 sm:my-18">
+            <div class="flex flex-col gap-8">
+                <h5 class="text-2xl uppercase">Venus global enterprises</h5>
+                <p class="text-[#c4c5c7] ">Your trusted partner in Scanning, Digitalization & IT Solutions.</p>
+                <div class="uppercase flex flex-col gap-8">
+                    <h6>follow us</h6>
+                    <div class="flex gap-8">
+                        <a class="icon-size-1 hover:text-blue-700 hover:scale-125 transition-all duration-300 ease-in-out"
+                            href="#"><i class="fab fa-linkedin"></i></a>
+                        <a class="icon-size-1 hover:text-pink-600 hover:scale-125 transition-all duration-300 ease-in-out"
+                            href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="icon-size-1 hover:text-blue-500 hover:scale-125 transition-all duration-300 ease-in-out"
+                            href="#"><i class="fab fa-facebook"></i></a>
+                        <a class="icon-size-1 hover:text-red-500 hover:scale-125 transition-all duration-300 ease-in-out"
+                            href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex  flex-wrap sm:flex-nowrap gap-10">
+                <div class="flex flex-col gap-8 uppercase">
+                    <h6 class="text-lg font-bold">quick links</h6>
+                    <ul class="flex flex-col gap-3  text-[#c4c5c7]">
+                        <a class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">home</a>
+                        <a class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">about
+                            us</a>
+                        <a
+                            class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">services</a>
+                        <a
+                            class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">products</a>
+                        <a
+                            class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">carrers</a>
+                        <a class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">contact
+                            us</a>
+                    </ul>
+                </div>
+                <div class="flex flex-col gap-8 uppercase">
+                    <h6 class="text-lg font-bold">Services</h6>
+                    <ul class="flex flex-col gap-3  text-[#c4c5c7]">
+                        <li class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">Scanning
+                            & Digitalization</li>
+                        <li class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">Data
+                            Management</li>
+                        <li class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">Product
+                            Supply</li>
+                        <li class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">IT
+                            Solutions</li>
+                        <li class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">Software
+                            Development</li>
+                        <li class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">Support &
+                            Maintenance</li>
+                    </ul>
+                </div>
+                <div class="flex flex-col gap-8 uppercase">
+                    <h6 class="text-lg font-bold">contact us</h6>
+                    <ul class="flex flex-col gap-3  text-[#c4c5c7]">
+                        <span>Ghaziabad, Uttar Pradesh</span>
+                        <span>+91 0000000000</span>
+                        <span>venusglobal2020@gmail.com</span>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="w-full  bg-[#202124] text-center py-4 text-sm sm:text-lg mt-4 sm:mt-10">
+            © 2025 VENUS GLOBAL. All rights reserved. | Trusted Partner in Digital Transformation
+        </div>
+    </footer>
+    <script src="./script.js"></script>
+</body>
+
+</html>

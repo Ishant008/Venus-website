@@ -1,0 +1,67 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Prata&display=swap');
+body{
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+* {
+  user-select: none;
+}
+img {
+  user-select: none;
+}
+body {
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+  user-select: none;  
+  overflow-x: hidden;       /* Standard */
+}
+.font-title{
+     font-family: "Prata", serif;
+}
+.icon-size{
+    font-size: 50px;
+}
+.icon-size-1{
+    font-size: 35px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;               /* width of scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;     
+}
+
+::-webkit-scrollbar-thumb {
+  background: #09b850;      
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1d9d50;      /* hover color */
+}
+#typing-text{
+    border-right: 5px solid #09b850 ;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
