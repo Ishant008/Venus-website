@@ -71,7 +71,6 @@ body {
 /* Basic Styling for your header */
 header {
   position: relative;
-  background-color: #fff; /* Adjust as needed */
   z-index: 10;
   transition: all 0.3s ease-in-out; /* Smooth transition when sticky */
 }
@@ -86,7 +85,6 @@ header.sticky {
   right: 0;
   width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff; /* Keeps the header background white when sticky */
   animation: smooth-scroll 0.4s ease-in alternate;
 }
 @keyframes smooth-scroll{
