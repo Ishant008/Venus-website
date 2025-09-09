@@ -68,3 +68,48 @@ body {
   width: max-content;
   animation: scroll 20s linear infinite;
 }
+
+/* -----------------------------------------------Header css------------------------------------------------- */
+
+/* Basic Styling for your header */
+header {
+  position: relative;
+  background-color: #fff; /* Adjust as needed */
+  z-index: 10;
+  transition: all 0.3s ease-in-out; /* Smooth transition when sticky */
+}
+header.sticky img{
+  display: block;
+}
+
+header.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* Keeps the header background white when sticky */
+  animation: smooth-scroll 0.4s ease-in alternate;
+}
+@keyframes smooth-scroll{
+  from{
+    transform: translateY(-100%);
+  }
+  to{
+    transform: translateY(0%);
+  }
+}
+
+main.margin-t{
+  margin-top: 100px;
+}
+
+/* Active state style for the navigation links */
+nav a.active {
+  color: #09b850 !important; /* Green color for the active link */
+}
+
+
+
+
