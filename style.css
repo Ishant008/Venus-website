@@ -19,6 +19,9 @@ body {
 .font-title{
      font-family: "Prata", serif;
 }
+.play-size{
+  font-size: 80px;
+}
 .icon-size{
     font-size: 50px;
 }
