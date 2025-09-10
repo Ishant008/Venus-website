@@ -10,7 +10,7 @@ const stickyOffset = header.offsetTop;
 
 // Function to make the header sticky
 function stickyHeader() {
-  if (window.pageYOffset > stickyOffset+400) {
+  if (window.pageYOffset > stickyOffset+300) {
     header.classList.add("sticky");
     main.classList.add("margin-t");
   } else {
