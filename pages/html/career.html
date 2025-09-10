@@ -51,6 +51,88 @@
         </div>
     </header>
     <main>
+        <section class="bg-[#202124] text-white py-20 text-center">
+  <h1 class="text-5xl font-bold mb-4">🚀 Build Your Future With Us</h1>
+  <p class="text-lg text-gray-300">Join our team and shape tomorrow with innovation, creativity, and growth.</p>
+</section>
+
+<!-- Search + Filter -->
+<section class="py-10 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-4 items-center">
+      <!-- Search -->
+      <input type="text" id="jobSearch" placeholder="Search jobs..."
+        class="col-span-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#09b850] w-full">
+
+      <!-- Filter -->
+      <select id="jobFilter" class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#09b850] w-full">
+        <option value="all">All Departments</option>
+        <option value="it">IT Department</option>
+        <option value="sales">Sales</option>
+        <option value="support">Support</option>
+      </select>
+    </div>
+  </div>
+</section>
+
+<!-- Job Listings -->
+<section class="py-16 bg-[#f8f8f8]">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="jobList">
+
+    <!-- Job Card -->
+    <div class="job-card bg-white border border-gray-200 shadow-lg rounded-xl p-6 hover:shadow-2xl transition duration-300"
+      data-dept="it">
+      <h3 class="text-xl font-bold text-[#202124]">Software Developer</h3>
+      <p class="text-gray-600 mt-2">Work on modern web applications and scalable solutions.</p>
+      <span class="block mt-3 text-sm text-gray-500">Location: Remote</span>
+      <button class="mt-5 bg-[#09b850] text-white px-5 py-2 rounded-lg hover:bg-green-600 transition">Apply Now</button>
+    </div>
+
+    <!-- Job Card -->
+    <div class="job-card bg-white border border-gray-200 shadow-lg rounded-xl p-6 hover:shadow-2xl transition duration-300"
+      data-dept="sales">
+      <h3 class="text-xl font-bold text-[#202124]">Sales Executive</h3>
+      <p class="text-gray-600 mt-2">Expand our business network and drive growth.</p>
+      <span class="block mt-3 text-sm text-gray-500">Location: Delhi</span>
+      <button class="mt-5 bg-[#09b850] text-white px-5 py-2 rounded-lg hover:bg-green-600 transition">Apply Now</button>
+    </div>
+
+    <!-- Job Card -->
+    <div class="job-card bg-white border border-gray-200 shadow-lg rounded-xl p-6 hover:shadow-2xl transition duration-300"
+      data-dept="support">
+      <h3 class="text-xl font-bold text-[#202124]">Customer Support</h3>
+      <p class="text-gray-600 mt-2">Provide excellent support to our customers.</p>
+      <span class="block mt-3 text-sm text-gray-500">Location: Mumbai</span>
+      <button class="mt-5 bg-[#09b850] text-white px-5 py-2 rounded-lg hover:bg-green-600 transition">Apply Now</button>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const searchInput = document.getElementById('jobSearch');
+  const filterSelect = document.getElementById('jobFilter');
+  const jobCards = document.querySelectorAll('.job-card');
+
+  function filterJobs() {
+    const searchText = searchInput.value.toLowerCase();
+    const filterValue = filterSelect.value;
+
+    jobCards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+      const dept = card.getAttribute('data-dept');
+
+      if ((text.includes(searchText)) && (filterValue === 'all' || filterValue === dept)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  searchInput.addEventListener('input', filterJobs);
+  filterSelect.addEventListener('change', filterJobs);
+</script>
 
     </main>
     <footer class="bg-black  text-white w-full flex flex-col items-center">
