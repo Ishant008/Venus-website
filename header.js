@@ -9,7 +9,7 @@ const stickyOffset = header.offsetTop;
 
 // Function to make the header sticky
 function stickyHeader() {
-  if (window.pageYOffset > stickyOffset+200) {
+  if (window.pageYOffset > stickyOffset) {
     header.classList.add("sticky");
   } else {
     header.classList.remove("sticky");

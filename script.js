@@ -57,7 +57,7 @@ const stickyOffset = header.offsetTop;
 
 // Function to make the header sticky
 function stickyHeader() {
-  if (window.pageYOffset > stickyOffset+200) {
+  if (window.pageYOffset > stickyOffset) {
     triangle.style.visibility = "hidden";
     header.classList.add("sticky");
   } else {

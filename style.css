@@ -39,6 +39,9 @@ body {
 .icon-size-1 {
   font-size: 35px;
 }
+.icon-size-2{
+  font-size: 20px;
+}
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
