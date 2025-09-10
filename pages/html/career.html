@@ -52,91 +52,100 @@
     </header>
     <main>
         <section class="bg-[#202124] text-white py-20 text-center">
-  <h1 class="text-5xl font-bold mb-4">🚀 Build Your Future With Us</h1>
-  <p class="text-lg text-gray-300">Join our team and shape tomorrow with innovation, creativity, and growth.</p>
-</section>
+            <h1 class="text-5xl font-bold mb-4">🚀 Build Your Future With Us</h1>
+            <p class="text-lg text-gray-300">Join our team and shape tomorrow with innovation, creativity, and growth.
+            </p>
+        </section>
 
-<!-- Search + Filter -->
-<section class="py-10 bg-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid md:grid-cols-3 gap-4 items-center">
-      <!-- Search -->
-      <input type="text" id="jobSearch" placeholder="Search jobs..."
-        class="col-span-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#09b850] w-full">
+        <!-- Search + Filter -->
+        <section class="py-10 bg-white">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-4 items-center">
+                    <!-- Search -->
+                    <input type="text" id="jobSearch" placeholder="Search jobs..."
+                        class="col-span-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#09b850] w-full">
 
-      <!-- Filter -->
-      <select id="jobFilter" class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#09b850] w-full">
-        <option value="all">All Departments</option>
-        <option value="it">IT Department</option>
-        <option value="sales">Sales</option>
-        <option value="support">Support</option>
-      </select>
-    </div>
-  </div>
-</section>
+                    <!-- Filter -->
+                    <select id="jobFilter"
+                        class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#09b850] w-full">
+                        <option value="all">All Departments</option>
+                        <option value="it">IT Department</option>
+                        <option value="sales">Sales</option>
+                        <option value="support">Support</option>
+                    </select>
+                </div>
+            </div>
+        </section>
 
-<!-- Job Listings -->
-<section class="py-16 bg-[#f8f8f8]">
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="jobList">
+        <!-- Job Listings -->
+        <section class="py-16 bg-[#f8f8f8]">
+            <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="jobList">
 
-    <!-- Job Card -->
-    <div class="job-card bg-white border border-gray-200 shadow-lg rounded-xl p-6 hover:shadow-2xl transition duration-300"
-      data-dept="it">
-      <h3 class="text-xl font-bold text-[#202124]">Software Developer</h3>
-      <p class="text-gray-600 mt-2">Work on modern web applications and scalable solutions.</p>
-      <span class="block mt-3 text-sm text-gray-500">Location: Remote</span>
-      <button class="mt-5 bg-[#09b850] text-white px-5 py-2 rounded-lg hover:bg-green-600 transition">Apply Now</button>
-    </div>
+                <!-- Job Card -->
+                <div class="job-card bg-white border border-gray-200 shadow-lg rounded-xl p-6 hover:shadow-2xl transition duration-300"
+                    data-dept="it">
+                    <h3 class="text-xl font-bold text-[#202124]">Software Developer</h3>
+                    <p class="text-gray-600 mt-2">Work on modern web applications and scalable solutions.</p>
+                    <span class="block mt-3 text-sm text-gray-500">Location: Remote</span>
+                    <button
+                        class="mt-5 bg-[#09b850] text-white px-5 py-2 rounded-lg hover:bg-green-600 transition">Apply
+                        Now</button>
+                </div>
 
-    <!-- Job Card -->
-    <div class="job-card bg-white border border-gray-200 shadow-lg rounded-xl p-6 hover:shadow-2xl transition duration-300"
-      data-dept="sales">
-      <h3 class="text-xl font-bold text-[#202124]">Sales Executive</h3>
-      <p class="text-gray-600 mt-2">Expand our business network and drive growth.</p>
-      <span class="block mt-3 text-sm text-gray-500">Location: Delhi</span>
-      <button class="mt-5 bg-[#09b850] text-white px-5 py-2 rounded-lg hover:bg-green-600 transition">Apply Now</button>
-    </div>
+                <!-- Job Card -->
+                <div class="job-card bg-white border border-gray-200 shadow-lg rounded-xl p-6 hover:shadow-2xl transition duration-300"
+                    data-dept="sales">
+                    <h3 class="text-xl font-bold text-[#202124]">Sales Executive</h3>
+                    <p class="text-gray-600 mt-2">Expand our business network and drive growth.</p>
+                    <span class="block mt-3 text-sm text-gray-500">Location: Delhi</span>
+                    <button
+                        class="mt-5 bg-[#09b850] text-white px-5 py-2 rounded-lg hover:bg-green-600 transition">Apply
+                        Now</button>
+                </div>
 
-    <!-- Job Card -->
-    <div class="job-card bg-white border border-gray-200 shadow-lg rounded-xl p-6 hover:shadow-2xl transition duration-300"
-      data-dept="support">
-      <h3 class="text-xl font-bold text-[#202124]">Customer Support</h3>
-      <p class="text-gray-600 mt-2">Provide excellent support to our customers.</p>
-      <span class="block mt-3 text-sm text-gray-500">Location: Mumbai</span>
-      <button class="mt-5 bg-[#09b850] text-white px-5 py-2 rounded-lg hover:bg-green-600 transition">Apply Now</button>
-    </div>
+                <!-- Job Card -->
+                <div class="job-card bg-white border border-gray-200 shadow-lg rounded-xl p-6 hover:shadow-2xl transition duration-300"
+                    data-dept="support">
+                    <h3 class="text-xl font-bold text-[#202124]">Customer Support</h3>
+                    <p class="text-gray-600 mt-2">Provide excellent support to our customers.</p>
+                    <span class="block mt-3 text-sm text-gray-500">Location: Mumbai</span>
+                    <button
+                        class="mt-5 bg-[#09b850] text-white px-5 py-2 rounded-lg hover:bg-green-600 transition">Apply
+                        Now</button>
+                </div>
 
-  </div>
-</section>
+            </div>
+        </section>
 
-<script>
-  const searchInput = document.getElementById('jobSearch');
-  const filterSelect = document.getElementById('jobFilter');
-  const jobCards = document.querySelectorAll('.job-card');
+        <script>
+            const searchInput = document.getElementById('jobSearch');
+            const filterSelect = document.getElementById('jobFilter');
+            const jobCards = document.querySelectorAll('.job-card');
 
-  function filterJobs() {
-    const searchText = searchInput.value.toLowerCase();
-    const filterValue = filterSelect.value;
+            function filterJobs() {
+                const searchText = searchInput.value.toLowerCase();
+                const filterValue = filterSelect.value;
 
-    jobCards.forEach(card => {
-      const text = card.innerText.toLowerCase();
-      const dept = card.getAttribute('data-dept');
+                jobCards.forEach(card => {
+                    const text = card.innerText.toLowerCase();
+                    const dept = card.getAttribute('data-dept');
 
-      if ((text.includes(searchText)) && (filterValue === 'all' || filterValue === dept)) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
+                    if ((text.includes(searchText)) && (filterValue === 'all' || filterValue === dept)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
 
-  searchInput.addEventListener('input', filterJobs);
-  filterSelect.addEventListener('change', filterJobs);
-</script>
+            searchInput.addEventListener('input', filterJobs);
+            filterSelect.addEventListener('change', filterJobs);
+        </script>
 
     </main>
     <footer class="bg-black  text-white w-full flex flex-col items-center">
-        <div class="xl:w-[82%] lg:w-[97%] w-[90%] flex flex-col  gap-10 lg:gap-0 lg:flex-row lg:justify-between my-8 sm:my-18">
+        <div
+            class="xl:w-[82%] lg:w-[97%] w-[90%] flex flex-col  gap-10 lg:gap-0 lg:flex-row lg:justify-between my-8 sm:my-18">
             <div class="flex flex-col gap-8">
                 <h5 class="text-2xl uppercase">Venus global enterprises</h5>
                 <p class="text-[#c4c5c7] ">Your trusted partner in Scanning, Digitalization & IT Solutions.</p>
@@ -158,8 +167,10 @@
                 <div class="flex flex-col gap-8 uppercase ">
                     <h6 class="sm:text-lg text-[14px] font-bold">quick links</h6>
                     <ul class="flex flex-col gap-3 sm:text-lg text-[14px]  text-[#c4c5c7]">
-                        <a href="/" class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">home</a>
-                        <a href="/pages/html/about_page.html" class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">about
+                        <a href="/"
+                            class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">home</a>
+                        <a href="/pages/html/about_page.html"
+                            class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">about
                             us</a>
                         <a href="/pages/html/services.html"
                             class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">services</a>
@@ -167,7 +178,8 @@
                             class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">products</a>
                         <a href="/pages/html/career.html"
                             class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">carrers</a>
-                        <a href="/pages/html/contact_us.html" class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">contact
+                        <a href="/pages/html/contact_us.html"
+                            class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">contact
                             us</a>
                     </ul>
                 </div>
