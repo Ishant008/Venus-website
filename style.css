@@ -105,6 +105,28 @@ nav a.active {
   color: #09b850 !important; /* Green color for the active link */
 }
 
+.button-hover {
+  position: relative; /* Ensure positioning context for the pseudo-element */
+  z-index: 0;
+}
+
+.button-hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  transition: width 0.7s ease;
+  z-index: -1; /* Keeps it behind the text */
+}
+
+.button-hover:hover::before {
+  width: 100%; /* Expands the pseudo-element to fill the button */
+}
+
+
+
 
 
 
