@@ -99,9 +99,6 @@ header {
   transition: all 0.3s ease-in-out;
 }
 
-main{
-  padding-top: 100px;
-}
 
 header.sticky img {
   display: block;
