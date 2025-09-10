@@ -48,7 +48,6 @@ const texts = [
 
 // Get the header element
 const header = document.querySelector("header");
-const main = document.querySelector("main");
 const triangle = document.querySelector(".triangle-hidden");
 
 
@@ -58,14 +57,12 @@ const stickyOffset = header.offsetTop;
 
 // Function to make the header sticky
 function stickyHeader() {
-  if (window.pageYOffset > stickyOffset+400) {
+  if (window.pageYOffset > stickyOffset+200) {
     triangle.style.visibility = "hidden";
     header.classList.add("sticky");
-    main.classList.add("margin-t");
   } else {
     triangle.style.visibility = "visible"
     header.classList.remove("sticky");
-    main.classList.remove("margin-t")
   }
 }
 

@@ -1,6 +1,5 @@
 // Get the header element
 const header = document.querySelector("header");
-const main = document.querySelector("main");
 
 
 
@@ -10,12 +9,10 @@ const stickyOffset = header.offsetTop;
 
 // Function to make the header sticky
 function stickyHeader() {
-  if (window.pageYOffset > stickyOffset+300) {
+  if (window.pageYOffset > stickyOffset+200) {
     header.classList.add("sticky");
-    main.classList.add("margin-t");
   } else {
     header.classList.remove("sticky");
-    main.classList.remove("margin-t")
   }
 }
 

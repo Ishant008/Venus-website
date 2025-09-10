@@ -1,63 +1,80 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Prata&display=swap');
-body{
-    font-family: "Bricolage Grotesque", sans-serif;
+
+body {
+  font-family: "Bricolage Grotesque", sans-serif;
 }
+
 * {
   user-select: none;
 }
+
 img {
   user-select: none;
 }
+
 body {
-  -webkit-user-select: none; /* Chrome, Safari */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none;     /* IE/Edge */
-  user-select: none;  
-  overflow-x: hidden;       /* Standard */
+  -webkit-user-select: none;
+  /* Chrome, Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+  user-select: none;
+  overflow-x: hidden;
+  /* Standard */
 }
-.font-title{
-     font-family: "Prata", serif;
+
+.font-title {
+  font-family: "Prata", serif;
 }
-.play-size{
+
+.play-size {
   font-size: 80px;
 }
-.icon-size{
-    font-size: 50px;
+
+.icon-size {
+  font-size: 50px;
 }
-.icon-size-1{
-    font-size: 35px;
+
+.icon-size-1 {
+  font-size: 35px;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;               /* width of scrollbar */
+  width: 8px;
+  /* width of scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;     
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #09b850;      
+  background: #09b850;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1d9d50;      /* hover color */
+  background: #1d9d50;
+  /* hover color */
 }
-#typing-text{
-    border-right: 5px solid #09b850 ;
-    animation: blink 0.7s infinite;
+
+#typing-text {
+  border-right: 5px solid #09b850;
+  animation: blink 0.7s infinite;
 }
 
 @keyframes blink {
-  50% { border-color: transparent; }
+  50% {
+    border-color: transparent;
+  }
 }
 
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -73,11 +90,20 @@ body {
 
 /* Basic Styling for your header */
 header {
-  position: relative;
+  position: absolute;
   z-index: 10;
-  transition: all 0.3s ease-in-out; /* Smooth transition when sticky */
+   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
 }
-header.sticky img{
+
+main{
+  padding-top: 100px;
+}
+
+header.sticky img {
   display: block;
 }
 
@@ -90,26 +116,26 @@ header.sticky {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   animation: smooth-scroll 0.4s ease-in alternate;
 }
-@keyframes smooth-scroll{
-  from{
+
+@keyframes smooth-scroll {
+  from {
     transform: translateY(-100%);
   }
-  to{
+
+  to {
     transform: translateY(0%);
   }
 }
 
-main.margin-t{
-  margin-top: 100px;
-}
-
 /* Active state style for the navigation links */
 nav a.active {
-  color: #09b850 !important; /* Green color for the active link */
+  color: #09b850 !important;
+  /* Green color for the active link */
 }
 
 .button-hover {
-  position: relative; /* Ensure positioning context for the pseudo-element */
+  position: relative;
+  /* Ensure positioning context for the pseudo-element */
   z-index: 0;
 }
 
@@ -121,39 +147,44 @@ nav a.active {
   height: 100%;
   width: 0;
   transition: width 0.7s ease;
-  z-index: -1; /* Keeps it behind the text */
+  z-index: -1;
+  /* Keeps it behind the text */
 }
 
 .button-hover:hover::before {
-  width: 100%; /* Expands the pseudo-element to fill the button */
+  width: 100%;
+  /* Expands the pseudo-element to fill the button */
 }
 
 .text-focus-in {
-	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
+
 @-webkit-keyframes text-focus-in {
   0% {
     -webkit-filter: blur(12px);
-            filter: blur(12px);
+    filter: blur(12px);
     opacity: 0;
   }
+
   100% {
     -webkit-filter: blur(0px);
-            filter: blur(0px);
-    opacity: 1;
-  }
-}
-@keyframes text-focus-in {
-  0% {
-    -webkit-filter: blur(12px);
-            filter: blur(12px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-filter: blur(0px);
-            filter: blur(0px);
+    filter: blur(0px);
     opacity: 1;
   }
 }
 
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
