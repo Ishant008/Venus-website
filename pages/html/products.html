@@ -50,11 +50,31 @@
             </button>
         </div>
     </header>
-    <main>
-
+    <main class="w-full flex justify-center lg:pt-20 pt-16">
+        <section class="py-16 xl:w-[82%] lg:w-[97%] w-[90%]">
+            <div class="flex flex-col gap-8 mb-16">
+                <h1 class="text-5xl md:text-7xl">Explore our products</h1>
+                <p class="text-lg text-gray-500">Discover handpicked products made just for you</p>
+            </div>
+            <div class="flex w-full  py-3 gap-10 relative items-start">
+                <div class="hidden lg:flex flex-col gap-4 w-[15%] sticky top-0">
+                    <div class="h-16 bg-transparent w-full"></div>
+                    <div class="border-b-1 w-4/5 py-3">All</div>
+                    <div class="border-b-1 w-4/5 py-3">New Arrival</div>
+                    <div class="border-b-1 w-4/5 py-3">Collection</div>
+                </div>
+                <div class="product-container flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-1">
+                </div>
+                <div class="flex w-full lg:hidden h-14 bg-black text-white fixed left-0 bottom-0">
+                <span class="flex items-center justify-center w-full border-r-1">New Arrival</span>
+                <span class="flex items-center justify-center w-full">Categories</span>
+            </div>
+            </div>
+        </section>
     </main>
     <footer class="bg-black  text-white w-full flex flex-col items-center">
-        <div class="xl:w-[82%] lg:w-[97%] w-[90%] flex flex-col  gap-10 lg:gap-0 lg:flex-row lg:justify-between my-8 sm:my-18">
+        <div
+            class="xl:w-[82%] lg:w-[97%] w-[90%] flex flex-col  gap-10 lg:gap-0 lg:flex-row lg:justify-between my-8 sm:my-18">
             <div class="flex flex-col gap-8">
                 <h5 class="text-2xl uppercase">Venus global enterprises</h5>
                 <p class="text-[#c4c5c7] ">Your trusted partner in Scanning, Digitalization & IT Solutions.</p>
@@ -76,8 +96,10 @@
                 <div class="flex flex-col gap-8 uppercase ">
                     <h6 class="sm:text-lg text-[14px] font-bold">quick links</h6>
                     <ul class="flex flex-col gap-3 sm:text-lg text-[14px]  text-[#c4c5c7]">
-                        <a href="/" class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">home</a>
-                        <a href="/pages/html/about_page.html" class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">about
+                        <a href="/"
+                            class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">home</a>
+                        <a href="/pages/html/about_page.html"
+                            class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">about
                             us</a>
                         <a href="/pages/html/services.html"
                             class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">services</a>
@@ -85,7 +107,8 @@
                             class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">products</a>
                         <a href="/pages/html/career.html"
                             class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">carrers</a>
-                        <a href="/pages/html/contact_us.html" class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">contact
+                        <a href="/pages/html/contact_us.html"
+                            class="hover:text-[#09b850] transition-colors duration-150 ease-in cursor-pointer">contact
                             us</a>
                     </ul>
                 </div>
@@ -121,6 +144,121 @@
         </div>
     </footer>
     <script src="/header.js"></script>
+    <script>
+        const array = [
+            {
+                name: "Perfume",
+                img: "https://www.befunky.com/images/wp/wp-2018-08-product-photography-18.jpg?auto=avif,webp&format=jpg&width=944",
+                price: 2999
+            },
+            {
+                name: "Headphones",
+                img: "https://media.istockphoto.com/id/1320934166/photo/cosmetic-skin-care-products-on-green-leaves.jpg?s=612x612&w=0&k=20&c=X4pwnTaBzXHDOGZlcdJdlKxmYd__61xboHVIiR5JMIk=",
+                price: 3999
+            },
+            {
+                name: "Smart Watch",
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaunQc2DfiDZlQv9-ir_lxGSRVGSdjmMFmJg&s",
+                price: 7999
+            },
+            {
+                name: "Laptop",
+                img: "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg",
+                price: 45999
+            },
+            {
+                name: "Smartphone",
+                img: "https://images.pexels.com/photos/3687717/pexels-photo-3687717.jpeg",
+                price: 23999
+            },
+            {
+                name: "Sneakers",
+                img: "https://images.pexels.com/photos/1335766/pexels-photo-1335766.jpeg",
+                price: 5999
+            },
+            {
+                name: "Backpack",
+                img: "https://images.pexels.com/photos/3645447/pexels-photo-3645447.jpeg",
+                price: 1999
+            },
+            {
+                name: "Sunglasses",
+                img: "https://images.pexels.com/photos/1518524/pexels-photo-1518524.jpeg",
+                price: 1499
+            },
+            {
+                name: "Camera",
+                img: "https://images.pexels.com/photos/1893607/pexels-photo-1893607.jpeg",
+                price: 15999
+            },
+            {
+                name: "Shoes",
+                img: "https://images.pexels.com/photos/4161597/pexels-photo-4161597.jpeg",
+                price: 3499
+            },
+            {
+                name: "T-shirt",
+                img: "https://images.pexels.com/photos/1689529/pexels-photo-1689529.jpeg",
+                price: 999
+            },
+            {
+                name: "Watch",
+                img: "https://images.pexels.com/photos/1231687/pexels-photo-1231687.jpeg",
+                price: 5999
+            },
+            {
+                name: "Bluetooth Speaker",
+                img: "https://images.pexels.com/photos/3568521/pexels-photo-3568521.jpeg",
+                price: 2999
+            },
+            {
+                name: "Laptop Bag",
+                img: "https://images.pexels.com/photos/3645403/pexels-photo-3645403.jpeg",
+                price: 1499
+            },
+            {
+                name: "Smart Light Bulb",
+                img: "https://images.pexels.com/photos/6320983/pexels-photo-6320983.jpeg",
+                price: 799
+            },
+            {
+                name: "Coffee Maker",
+                img: "https://images.pexels.com/photos/4435280/pexels-photo-4435280.jpeg",
+                price: 4999
+            },
+            {
+                name: "Gaming Mouse",
+                img: "https://images.pexels.com/photos/2280506/pexels-photo-2280506.jpeg",
+                price: 1499
+            },
+            {
+                name: "Air Purifier",
+                img: "https://images.pexels.com/photos/3321967/pexels-photo-3321967.jpeg",
+                price: 6999
+            }
+        ];
+
+        let productContainer = document.querySelector(".product-container")
+        let productsHtml = ``;
+        array.forEach(product => {
+            productsHtml += `<div class="flex flex-col group">
+                <div class="w-full h-[250px] overflow-hidden rounded-lg"><img class="w-full h-full object-cover rounded-lg group-hover:scale-115 transition-scale duration-500 ease-in"
+                            src=${product.img}
+                            alt=${product.name}>
+                    </div>
+                        <div class="flex justify-between w-full  items-center py-3">
+                            <div class="flex flex-col w-[60%] ">
+                                <span class="font-bold whitespace-nowrap overflow-clip text-ellipsis">${product.name}</span>
+                                <span class="text-gray-500">Rs. ${product.price}</span>
+                            </div>
+                            <a class="border-1 rounded py-1 px-3 hover:bg-black hover:text-white transition"
+                                href="/">View</a>
+                        </div>
+                        </div>`
+        })
+        productContainer.innerHTML = productsHtml;
+        console.log(productContainer.innerHTML);
+    </script>
 </body>
 
 </html>

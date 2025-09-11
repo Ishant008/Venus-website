@@ -188,3 +188,7 @@ nav a.active {
     opacity: 1;
   }
 }
+
+.sentinel {
+    height: 1px;  /* Invisible, but occupies space */
+}
