@@ -16,7 +16,10 @@
     <title>Job Profile</title>
   </head>
 
-  <body class="m-0 p-0 overflow-x-hidden box-border">
+  <body
+    class="m-0 p-0 overflow-x-hidden box-border bg-gradient-to-br from-[#f9fafb] via-[#f3fdf7] to-[#e8f9f0]"
+  >
+    <!-- HEADER (untouched) -->
     <header class="w-full flex justify-center bg-white">
       <div
         class="xl:w-[82%] lg:w-[97%] w-[90%] lg:h-20 h-16 flex items-center justify-between"
@@ -85,31 +88,217 @@
         </a>
       </div>
     </header>
-
-    <main class="lg:pt-20 pt-16 w-full flex flex-col items-center">
-      <section class="xl:w-[82%] lg:w-[97%] w-[90%] relative">
-        <div class="flex flex-col gap-3">
-          <h1 class="font-extrabold text-3xl">Product Manager</h1>
-          <div class="flex gap-10 mb-2">
-            <span class="w-fit rounded-full border p-1 bg-slate-100">Full-Time</span>
-            <span class="w-fit rounded-full border p-1 bg-slate-100">Remote</span>
+    <!-- MAIN CONTENT -->
+    <main class="lg:pt-20 pt-16 w-full flex justify-center">
+      <section
+        class="xl:w-[96%] lg:w-[97%] w-[90%] grid grid-cols-1 gap-6 xl:grid-cols-2 my-6"
+      >
+        <!-- LEFT: JOB DETAILS -->
+        <div class="flex flex-col gap-4 text-[#202124] animate-fadeInLeft">
+          <h1 class="font-bold text-3xl border-l-4 border-[#09b850] pl-3">
+            Product Manager
+          </h1>
+          <div class="flex gap-4">
+            <span
+              class="w-fit rounded-full border px-3 py-1 bg-white shadow-md text-sm text-[#202124] hover:scale-110 hover:bg-[#09b850] hover:text-white transition"
+            >
+              Full-Time
+            </span>
+            <span
+              class="w-fit rounded-full border px-3 py-1 bg-white shadow-md text-sm text-[#202124] hover:scale-110 hover:bg-[#09b850] hover:text-white transition"
+            >
+              Remote
+            </span>
           </div>
-          <p class="mb-2">Our mission is to build a super powerful and exceptionally Delightfull All-in-One recuiretement platform, that empowers recruiters and leader to source, engage and close best candidates.</p>
-          <div class="mb-2">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam veritatis cumque ad iure libero temporibus velit esse, ea rerum hic molestiae similique accusantium consequuntur, Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit ex obcaecati tmvkjnvfd vfdvmeovm ddvr vrer  ghf rw vujgiuredus nesciunt tempore sed libero ab eveniet nisi commodi in.
-          </div>
-          <div>
-            <div class="font-bold">Requirements<div>
-             <ul>
-                <li>communication skill</li>
-                <li>gesture movements</li>
-                <li>html, css, javascript</li>
-                <li>MERN Stack developer</li>
+          <p class="leading-relaxed">
+            Our mission is to build a super powerful and exceptionally
+            delightful all-in-one recruitment platform that empowers recruiters
+            and leaders to source, engage and close the best candidates.
+          </p>
+          <p class="leading-relaxed text-sm text-gray-600">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+            veritatis cumque ad iure libero temporibus velit esse, ea rerum hic
+            molestiae similique accusantium consequuntur.
+          </p>
+          <div class="flex flex-col gap-1">
+            <div class="font-bold text-lg text-[#09b850]">Requirements</div>
+            <ul class="list-disc ml-6 text-sm space-y-1">
+              <li>Communication skill</li>
+              <li>Gesture movements</li>
+              <li>HTML, CSS, JavaScript</li>
+              <li>MERN Stack developer</li>
             </ul>
+          </div>
+        </div>
+
+        <!-- RIGHT: FORM -->
+        <div
+          class="bg-white/70 backdrop-blur-md border border-white/40 shadow-2xl rounded-2xl p-6 hover:scale-[1.02] hover:shadow-[#09b850]/50 transition duration-500 animate-fadeInUp"
+        >
+          <h2
+            class="text-3xl font-bold text-[#202124] mb-6 border-b pb-2 border-gray-200"
+          >
+            Application
+          </h2>
+
+          <form class="space-y-4">
+            <!-- First + Last Name -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="group">
+                <label class="block text-sm font-medium text-[#202124] mb-1"
+                  >First Name<span class="text-red-500">*</span></label
+                >
+                <input
+                  type="text"
+                  placeholder="Enter first name"
+                  class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#09b850] transition group-hover:shadow-md"
+                />
+              </div>
+              <div class="group">
+                <label class="block text-sm font-medium text-[#202124] mb-1"
+                  >Last Name<span class="text-red-500">*</span></label
+                >
+                <input
+                  type="text"
+                  placeholder="Enter last name"
+                  class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#09b850] transition group-hover:shadow-md"
+                />
+              </div>
             </div>
-        
+
+            <!-- Email + Phone -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="group">
+                <label class="block text-sm font-medium text-[#202124] mb-1"
+                  >Email<span class="text-red-500">*</span></label
+                >
+                <input
+                  type="email"
+                  placeholder="Enter email"
+                  class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#09b850] transition group-hover:shadow-md"
+                />
+              </div>
+              <div class="group">
+                <label class="block text-sm font-medium text-[#202124] mb-1"
+                  >Phone Number<span class="text-red-500">*</span></label
+                >
+                <input
+                  type="tel"
+                  placeholder="Enter phone number"
+                  class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#09b850] transition group-hover:shadow-md"
+                />
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="group">
+              <p class="text-sm font-medium text-[#202124] mb-1">
+                Why would you like to join us?
+              </p>
+              <textarea
+                rows="4"
+                placeholder="Your Message"
+                class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#09b850] transition group-hover:shadow-md"
+              ></textarea>
+            </div>
+
+            <!-- Resume Upload -->
+            <div class="group">
+              <p class="text-sm font-medium text-[#202124] mb-1">Resume</p>
+              <input
+                type="file"
+                class="w-full border border-gray-300 rounded-lg p-2 cursor-pointer hover:border-[#09b850] transition group-hover:shadow-md"
+              />
+            </div>
+
+            <!-- Experience -->
+            <div>
+              <p class="text-sm font-medium text-[#202124] mb-2">
+                How much experience do you have?
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4">
+                <label
+                  class="flex items-center gap-2 cursor-pointer hover:scale-105 transition"
+                >
+                  <input
+                    type="radio"
+                    name="experience"
+                    value="0-2"
+                    class="accent-[#09b850]"
+                  />
+                  0-2 Years
+                </label>
+                <label
+                  class="flex items-center gap-2 cursor-pointer hover:scale-105 transition"
+                >
+                  <input
+                    type="radio"
+                    name="experience"
+                    value="3-5"
+                    class="accent-[#09b850]"
+                  />
+                  3-5 Years
+                </label>
+                <label
+                  class="flex items-center gap-2 cursor-pointer hover:scale-105 transition"
+                >
+                  <input
+                    type="radio"
+                    name="experience"
+                    value="5+"
+                    class="accent-[#09b850]"
+                  />
+                  5+ Years
+                </label>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="text-center pt-4">
+              <button
+                type="submit"
+                class="relative overflow-hidden bg-[#09b850] text-white px-8 py-3 rounded-lg font-semibold shadow-lg transition duration-300 hover:scale-105 hover:bg-[#202124]"
+              >
+                <span class="relative z-10">Submit Application</span>
+                <span
+                  class="absolute inset-0 bg-white/20 scale-0 group-hover:scale-150 transition duration-500 rounded-full"
+                ></span>
+              </button>
+            </div>
+          </form>
+        </div>
       </section>
     </main>
+
+    <!-- Tailwind Animations -->
+    <style>
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fadeInLeft {
+        animation: fadeInLeft 0.9s ease-out both;
+      }
+      .animate-fadeInUp {
+        animation: fadeInUp 1s ease-out both;
+      }
+    </style>
     <script src="/header.js"></script>
   </body>
 </html>
