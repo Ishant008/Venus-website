@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="./admin.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <main
+      class="w-full flex  relative"
+    >
+      <!-- Sidebar -->
+      <section
+        class="h-screen shadow-lg hidden lg:flex flex-col items-center gap-8 p-5 w-[24%] xl:w-[16%] z-1 sticky top-0 left-0 "
+      >
+        <h1 class="text-lg font-semibold text-purple-500 mb-2">ADMIN PANEL</h1>
+        <div
+          class="text-purple-900 bg-white p-3 rounded-lg shadow-2xl w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+        >
+          <span class="material-symbols-outlined">space_dashboard</span>
+          <span class="font-medium flex-1">Dashboard</span>
+        </div>
+        <div
+          class="text-purple-900 opacity-50 w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+        >
+          <span class="material-symbols-outlined">deployed_code</span>
+          <span class="font-medium flex-1">Product</span>
+        </div>
+        <div
+          class="text-purple-900 opacity-50 w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+        >
+          <span class="material-symbols-outlined">assignment</span>
+          <span class="font-medium flex-1">Vacancy</span>
+        </div>
+        <div
+          class="text-purple-900 opacity-50 w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+        >
+          <span class="material-symbols-outlined">groups</span>
+          <span class="font-medium flex-1">Candidates</span>
+        </div>
+        <div
+          class="text-purple-900 opacity-50 w-full px-5 text-xl  flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+        >
+          <span class="material-symbols-outlined">settings</span>
+          <span class="font-medium flex-1">Setting</span>
+        </div>
+      </section>
+
+      <!-- Content -->
+      <section class="flex-1 p-6 bg-gray-50">
+  <!-- Top Bar -->
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-2xl font-semibold text-purple-600">Products</h2>
+    <select
+      class="px-4 py-2 border border-purple-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 text-purple-700"
+    >
+      <option selected>All</option>
+      <option>Electronics</option>
+      <option>Clothing</option>
+      <option>Books</option>
+      <option>Home & Kitchen</option>
+    </select>
+  </div>
+
+  <!-- Products Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <!-- Product Card -->
+    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition">
+      <img
+        src="https://via.placeholder.com/150"
+        alt="Product"
+        class="rounded-lg w-full h-40 object-cover mb-3"
+      />
+      <h3 class="text-lg font-semibold text-purple-800">Product Name</h3>
+      <p class="text-purple-600 font-medium mb-3">$49.99</p>
+      <div class="flex gap-2">
+        <button
+          class="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg text-sm font-medium transition"
+        >
+          Update
+        </button>
+        <button
+          class="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg text-sm font-medium transition"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+
+    <!-- Duplicate product cards as needed -->
+    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition">
+      <img
+        src="https://plus.unsplash.com/premium_photo-1664392147011-2a720f214e01?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D"
+        alt="Product"
+        class="rounded-lg w-full max-h-48 object-cover mb-3"
+      />
+      <h3 class="text-lg font-semibold text-purple-800">Another Product</h3>
+      <p class="text-purple-600 font-medium mb-3">$79.99</p>
+      <div class="flex gap-2">
+        <button
+          class="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg text-sm font-medium transition"
+        >
+          Update
+        </button>
+        <button
+          class="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg text-sm font-medium transition"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+  </body>
+</html>
