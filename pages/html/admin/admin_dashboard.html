@@ -9,46 +9,47 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="./admin.css">
     <title>Document</title>
   </head>
-  <body class="overflow-hidden">
+  <body>
     <main
-      class="w-full flex bg-gradient-to-tr from-[#f1f5f9] to-[#e2e8f0] relative"
+      class="w-full flex  relative"
     >
       <div
-        class="bg-[url(/assets/admin/bg-1.jpg)] bg-contain bg-no-repeat bg-center blur-2xl w-full h-full absolute top-0 left-0 z-0"
+        class="bg-[url(/assets/admin/bg-1.jpg)] bg-contain lg:bg-no-repeat  md:bg-center blur-2xl w-full h-full absolute top-0 left-0 z-0"
       ></div>
       <!-- Sidebar -->
       <section
-        class="h-screen shadow-lg flex flex-col items-center gap-8  p-5 w-[16%] z-1"
+        class="h-screen shadow-lg hidden lg:flex flex-col items-center gap-8 p-5 w-[24%] xl:w-[16%] z-1 sticky top-0 left-0 "
       >
         <h1 class="text-lg font-semibold text-purple-500 mb-2">ADMIN PANEL</h1>
         <div
-          class="text-purple-900  bg-white p-3 rounded-lg shadow-2xl w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+          class="text-purple-900 bg-white p-3 rounded-lg shadow-2xl w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
         >
           <span class="material-symbols-outlined">space_dashboard</span>
           <span class="font-medium flex-1">Dashboard</span>
         </div>
         <div
-          class="text-purple-900 opacity-50  w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+          class="text-purple-900 opacity-50 w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
         >
           <span class="material-symbols-outlined">deployed_code</span>
           <span class="font-medium flex-1">Product</span>
         </div>
         <div
-          class="text-purple-900 opacity-50  w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+          class="text-purple-900 opacity-50 w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
         >
           <span class="material-symbols-outlined">assignment</span>
           <span class="font-medium flex-1">Vacancy</span>
         </div>
         <div
-          class="text-purple-900 opacity-50  w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+          class="text-purple-900 opacity-50 w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
         >
           <span class="material-symbols-outlined">groups</span>
           <span class="font-medium flex-1">Candidates</span>
         </div>
         <div
-          class="text-purple-900 opacity-50  w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+          class="text-purple-900 opacity-50 w-full px-5 text-xl  flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
         >
           <span class="material-symbols-outlined">settings</span>
           <span class="font-medium flex-1">Setting</span>
@@ -57,10 +58,10 @@
 
       <!-- Content -->
       <section
-        class="flex flex-col gap-20 flex-1 p-4 bg-cover m-4 rounded-lg overflow-y-auto z-1"
+        class="flex flex-col gap-20 flex-1 p-4 bg-cover m-4 rounded-lg  z-1"
       >
         <div class="w-full gap-10">
-          <div class="flex justify-end gap-10">
+          <div class="flex justify-between md:justify-end items-center gap-10">
             <div class="flex gap-4 items-center">
               <div
                 class="w-10 h-10 bg-gray-50 text-purple-800 shadow-lg font-medium text-2xl flex items-center justify-center rounded-full"
@@ -71,7 +72,7 @@
             </div>
             <div>
               <a
-                class="bg-purple-400 border-1 border-transparent hover:border-purple-400 hover:bg-white hover:text-purple-400 transition-all duration-150 ease-in lg:block hidden py-2 px-6 rounded text-white shadow-md cursor-pointer"
+                class="bg-purple-400 border-1 border-transparent hover:border-purple-400 hover:bg-white hover:text-purple-400 transition-all duration-150 ease-in py-2 px-6 rounded text-white shadow-md cursor-pointer"
                 >Logout</a
               >
             </div>
@@ -81,7 +82,7 @@
             class="grid grid-cols-2 h-60 mt-7 w-full backdrop-blur-sm rounded border-2 border-white"
           >
             <div class="flex flex-col justify-evenly p-4">
-              <h1 class="flex justify-center font-semibold text-2xl text-white">
+              <h1 class="flex justify-center font-semibold text-2xl  text-white">
                 Hi, Admin
               </h1>
             </div>
@@ -102,11 +103,11 @@
             class="grid w-full gap-10 xl:grid-cols-3 lg:grid-col-2 md:grid-col-1"
           >
             <div
-              class="flex justify-center items-center gap-5 backdrop-blur-sm bg-gradient-to-tr rounded-lg shadow-lg hover:shadow-2xl transition p-6 border-2 border-white text-white"
+              class="flex justify-center items-center gap-5  backdrop-blur-lg  rounded-lg shadow-lg hover:shadow-2xl transition p-6 border-2 border-white text-white"
             >
               <span class="material-symbols-outlined icon-size">box</span>
               <div class="flex flex-col gap-1">
-                <span class="text-center font-bold text-3xl">45</span>
+                <span class="text-center font-bold text-3xl ">45</span>
                 <span class="text-center font-medium text-lg"
                   >Products Listed</span
                 >
@@ -114,7 +115,7 @@
             </div>
 
             <div
-              class="flex justify-center items-center gap-5 backdrop-blur-sm bg-gradient-to-tr rounded-lg shadow-lg hover:shadow-2xl transition p-6 border-2 border-white text-white"
+              class="flex justify-center items-center gap-5 backdrop-blur-lg  rounded-lg shadow-lg hover:shadow-2xl transition p-6 border-2 border-white text-white"
             >
               <span class="material-symbols-outlined icon-size"
                 >app_registration</span
@@ -128,7 +129,7 @@
             </div>
 
             <div
-              class="flex justify-center items-center gap-5 backdrop-blur-sm bg-gradient-to-tr rounded-lg shadow-lg hover:shadow-2xl transition p-6 border-2 border-white text-purple-400"
+              class="flex justify-center items-center gap-5  backdrop-blur-lg  rounded-lg shadow-lg hover:shadow-2xl transition p-6 border-2 border-white text-white lg:bg-purple-600/30"
             >
               <span class="material-symbols-outlined icon-size">add_task</span>
               <div class="flex flex-col gap-1">
