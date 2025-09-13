@@ -1,8 +1,27 @@
+// Get the menu toggle button and the mobile menu
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+const closeMenuButton = document.getElementById('close-menu');
+
+// Function to open the mobile menu
+function openMenu() {
+  mobileMenu.style.visibility = "visible";
+  mobileMenu.style.transform = 'translateX(0)'; 
+  document.body.style.overflow = "hidden";
+}
+
+// Function to close the mobile menu
+function closeMenu() {
+  mobileMenu.style.visibility = "hidden";
+  mobileMenu.style.transform = 'translateX(100%)'; 
+  document.body.style.overflow = ""; 
+}
+
+// Add event listeners
+menuToggle.addEventListener('click', openMenu);
+closeMenuButton.addEventListener('click', closeMenu);
 // Get the header element
 const header = document.querySelector("header");
-
-
-
 
 // Get the offset position of the header
 const stickyOffset = header.offsetTop;
@@ -26,7 +45,7 @@ window.onscroll = function () {
 document.addEventListener('DOMContentLoaded', function () {
   // Get all the navigation links
   const navLinks = document.querySelectorAll('nav a');
-  
+
 
   // Loop through each link and check if it matches the current URL
   navLinks.forEach(link => {
@@ -35,4 +54,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+
+
+
+
+
 

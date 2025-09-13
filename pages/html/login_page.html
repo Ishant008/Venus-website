@@ -11,27 +11,26 @@
     <title>Document</title>
   </head>
   <body>
-    <main class="flex justify-center">
-        <section class="xl:w-[82%] lg:w-[97%] w-[90%] ">
-            <div class="flex md:flex-row flex-col-reverse justify-evenly ">
-                <div class="flex flex-col items-center max-sm:justify-center gap-10 md:mt-30 mb-6  md:max-w-[450px] md:w-[50%]">
+    <main class="flex items-center justify-center max-md:mt-8 md:min-h-screen">
+        <section class="xl:w-[82%] lg:w-[97%] w-[90%]">
+            <div class="flex md:flex-row flex-col-reverse  justify-center">
+                <div class="flex flex-col items-center justify-center w-full gap-10 md:mt-30 mb-6   md:w-[50%]">
                   <h1 class="text-centerfont-bold text-4xl">Welcome Admin !</h1>
-                  <div class="w-full flex flex-col gap-3">
+                  <div class="w-full flex flex-col gap-3 max-w-[450px]">
                       <div class="flex p-2 pl-5 rounded-full border-1"><input class="outline-none flex flex-1  w-full" type="text" placeholder="Username" /></div>
                       <div class="flex flex-1 p-2 pl-5 rounded-full border-1">
                         <input id="passwordInput" class="flex flex-1  w-full outline-none" type="password" placeholder="Password" />
-                        <span id="togglePassword" class="material-symbols-outlined cursor-pointer select-none"">
+                        <span id="togglePassword" class="material-symbols-outlined cursor-pointer select-none">
                           visibility_off
                         </span>
                     </div>
-                      <div class="flex justify-end mr-1"><span>Forgot Password ?</span></div>
                   </div>
-                  <div class="w-full text-center p-4 rounded-full -mt-5 text-white bg-black">
+                  <a class="w-full text-center p-4 rounded-full max-w-[450px] cursor-pointer hover:bg-[#2c2c2e] text-white bg-black">
                     Login
-                  </div>
+                  </a>
                 </div>
-                <div class=" flex items-center">
-                <img  src="/assets/loginpage/login-img.jpg" alt="Login Logo" />
+                <div class=" flex items-center w-full justify-center md:justify-end">
+                <img class="max-h-[300px] md:max-h-[400px] lg:max-h-[500px] object-cover"  src="/assets/loginpage/login-img.jpg" alt="Login Logo" />
                 </div>
             </div>
         </section>

@@ -13,14 +13,60 @@
 </head>
 
 <body>
-    <header class="w-full flex justify-center bg-white">
+    <header class="w-full flex justify-center bg-white overflow-hidden">
         <div class="xl:w-[82%] lg:w-[97%] w-[90%] lg:h-20 h-16  flex items-center justify-between">
             <div class="flex items-center h-full">
                 <span class="uppercase  md:text-xl  text-black font-bold flex items-center h-full font-title"><span
                         class="text-[#09b850] text-xl md:text-2xl  lg:text-3xl font-bold">V</span>enus global</span>
             </div>
-            <div class="lg:hidden flex items-center justify-center text-2xl cursor-pointer h-full bg-red">
+            <div class="lg:hidden flex items-center justify-center text-2xl cursor-pointer h-full " id="menu-toggle">
                 <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="fixed z-50 top-0 right-0 left-0 bottom-0 w-screen min-h-screen lg:hidden flex justify-end transition"
+                id="mobile-menu" style="transform: translateX(100%);">
+                <div class="w-full h-full z-0 bg-black opacity-90 absolute top-0 left-0"></div>
+                <nav class="flex w-[70%] max-w-[350px] bg-white z-10 py-5">
+                    <ul class="uppercase flex flex-col gap-6 items-center w-full">
+                        <button
+                            class="bg-gray-100 shadow-md mb-8 rounded-full flex justify-center items-center w-[70%] py-3 gap-3 text-lg"
+                            id="close-menu">
+                            <span>Close</span>
+                            <span class="material-symbols-outlined icon-size-2">
+                                arrow_forward_ios
+                            </span>
+                        </button>
+                        <a href="/"
+                            class="cursor-pointer  w-[80%] rounded-lg bg-gray-50 py-3 shadow-md flex justify-between px-5 hover:text-[#09b850] items-center gap-2 transition-colors duration-100 ease-in">
+                            <span class="material-symbols-outlined icon-size-3">
+                                home
+                            </span><span>home</span></a>
+                        <a href="/pages/html/about_page.html"
+                            class="cursor-pointer  w-[80%] rounded-lg bg-gray-50 py-3  shadow-md flex justify-between px-5 hover:text-[#09b850] items-center gap-2 transition-colors duration-100 ease-in">
+                            <span class="material-symbols-outlined icon-size-3">
+                                enterprise
+                            </span><span>about us</span></a>
+                        <a href="/pages/html/services.html"
+                            class="cursor-pointer  w-[80%] rounded-lg bg-gray-50 py-3  shadow-md flex justify-between px-5 hover:text-[#09b850] items-center gap-2 transition-colors duration-100 ease-in">
+                            <span class="material-symbols-outlined icon-size-3">
+                                apps
+                            </span> <span>services</span></a>
+                        <a href="/pages/html/products.html"
+                            class="cursor-pointer  w-[80%] rounded-lg bg-gray-50 py-3  shadow-md flex justify-between px-5 hover:text-[#09b850] items-center gap-2 transition-colors duration-100 ease-in">
+                            <span class="material-symbols-outlined icon-size-3">
+                                box
+                            </span> <span>products</span></a>
+                        <a href="/pages/html/career.html"
+                            class="cursor-pointer  w-[80%] rounded-lg bg-gray-50 py-3  shadow-md flex justify-between px-5 hover:text-[#09b850] items-center gap-2 transition-colors duration-100 ease-in">
+                            <span class="material-symbols-outlined icon-size-3">
+                                work
+                            </span> <span>careers</span></a>
+                        <a href="/pages/html/contact_us.html"
+                            class="cursor-pointer  w-[80%] rounded-lg bg-gray-50 py-3  shadow-md flex justify-between px-5 hover:text-[#09b850] items-center gap-2 transition-colors duration-100 ease-in">
+                            <span class="material-symbols-outlined icon-size-3">
+                                contact_page
+                            </span><span>contact us</span></a>
+                    </ul>
+                </nav>
             </div>
             <nav class="hidden  lg:flex justify-center">
                 <ul class="flex justify-evenly items-center uppercase w-[80%] min-w-[622px]">
