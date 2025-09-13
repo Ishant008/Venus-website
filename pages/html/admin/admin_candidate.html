@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="./admin.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <main
+      class="w-full flex  relative"
+    >
+      <!-- Sidebar -->
+      <section
+        class="h-screen shadow-lg hidden lg:flex flex-col items-center gap-8 p-5 w-[24%] xl:w-[16%] z-1 sticky top-0 left-0 "
+      >
+        <h1 class="text-lg font-semibold text-purple-500 mb-2">ADMIN PANEL</h1>
+        <div
+          class="text-purple-900 bg-white p-3 rounded-lg shadow-2xl w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+        >
+          <span class="material-symbols-outlined">space_dashboard</span>
+          <span class="font-medium flex-1">Dashboard</span>
+        </div>
+        <div
+          class="text-purple-900 opacity-50 w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+        >
+          <span class="material-symbols-outlined">deployed_code</span>
+          <span class="font-medium flex-1">Product</span>
+        </div>
+        <div
+          class="text-purple-900 opacity-50 w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+        >
+          <span class="material-symbols-outlined">assignment</span>
+          <span class="font-medium flex-1">Vacancy</span>
+        </div>
+        <div
+          class="text-purple-900 opacity-50 w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+        >
+          <span class="material-symbols-outlined">groups</span>
+          <span class="font-medium flex-1">Candidates</span>
+        </div>
+        <div
+          class="text-purple-900 opacity-50 w-full px-5 text-xl  flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+        >
+          <span class="material-symbols-outlined">settings</span>
+          <span class="font-medium flex-1">Setting</span>
+        </div>
+      </section>
+    
+      <section class="flex-1 bg-gray-50 p-6">
+  <h2 class="text-3xl font-bold text-purple-700 mb-8">Candidate List</h2>
+
+  <!-- Candidate Cards Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+    <!-- Candidate Card -->
+    <div class="bg-white shadow-xl rounded-2xl p-6 border border-purple-200 hover:shadow-2xl hover:scale-[1.01] transition-all duration-300">
+      <!-- Top section -->
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-xl font-bold text-purple-800">John Doe</h3>
+        <span class="text-sm px-3 py-1 rounded-full bg-purple-100 text-purple-700">Frontend Developer</span>
+      </div>
+
+      <!-- Details -->
+      <p class="text-sm text-gray-600">📧 johndoe@example.com</p>
+      <p class="text-sm text-gray-600">📱 +91 9876543210</p>
+      <p class="text-sm text-gray-600 mt-3">
+        <span class="font-semibold text-purple-700">Message:</span> I am passionate about frontend and React.js.
+      </p>
+      <p class="text-sm text-gray-600 mt-1">
+        <span class="font-semibold text-purple-700">Experience:</span> 3 Years
+      </p>
+
+      <!-- Buttons -->
+      <div class="mt-6 flex gap-3">
+        <a href="/resumes/john-doe.pdf" download
+          class="flex-1 text-center py-2 bg-purple-600 text-white text-sm rounded-lg font-medium hover:bg-purple-700 transition">
+          📂 Download Resume
+        </a>
+        <button 
+          onclick="deleteCandidate('john-doe')" 
+          class="flex-1 py-2 bg-red-600 text-white text-sm rounded-lg font-medium hover:bg-red-700 transition">
+          ❌ Delete
+        </button>
+      </div>
+    </div>
+
+    <!-- Example Other Card -->
+    <div class="bg-white shadow-xl rounded-2xl p-6 border border-purple-200 hover:shadow-2xl hover:scale-[1.01] transition-all duration-300">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-xl font-bold text-purple-800">Jane Smith</h3>
+        <span class="text-sm px-3 py-1 rounded-full bg-purple-100 text-purple-700">Backend Developer</span>
+      </div>
+
+      <p class="text-sm text-gray-600">📧 jane.smith@example.com</p>
+      <p class="text-sm text-gray-600">📱 +91 9876541230</p>
+      <p class="text-sm text-gray-600 mt-3">
+        <span class="font-semibold text-purple-700">Message:</span> Experienced with Node.js and Python APIs.
+      </p>
+      <p class="text-sm text-gray-600 mt-1">
+        <span class="font-semibold text-purple-700">Experience:</span> 5 Years
+      </p>
+
+      <div class="mt-6 flex gap-3">
+        <a href="/resumes/jane-smith.pdf" download
+          class="flex-1 text-center py-2 bg-purple-600 text-white text-sm rounded-lg font-medium hover:bg-purple-700 transition">
+          📂 Download Resume
+        </a>
+        <button 
+          onclick="deleteCandidate('jane-smith')" 
+          class="flex-1 py-2 bg-red-600 text-white text-sm rounded-lg font-medium hover:bg-red-700 transition">
+          ❌ Delete
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  async function deleteCandidate(candidateId) {
+    if (confirm("Are you sure you want to delete this candidate?")) {
+      try {
+        const res = await fetch(`/api/candidates/${candidateId}`, {
+          method: "DELETE"
+        });
+        if (res.ok) {
+          alert("Candidate deleted successfully!");
+          location.reload(); // refresh to update list
+        } else {
+          alert("Failed to delete candidate.");
+        }
+      } catch (error) {
+        console.error(error);
+        alert("Error deleting candidate.");
+      }
+    }
+  }
+</script>
+
+
+    </main>
+  </body>
+</html>

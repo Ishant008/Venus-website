@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="./admin.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <main
+      class="w-full flex  relative"
+    >
+      <!-- Sidebar -->
+      <section
+        class="h-screen shadow-lg hidden lg:flex flex-col items-center gap-8 p-5 w-[24%] xl:w-[16%] z-1 sticky top-0 left-0 "
+      >
+        <h1 class="text-lg font-semibold text-purple-500 mb-2">ADMIN PANEL</h1>
+        <div
+          class="text-purple-900 bg-white p-3 rounded-lg shadow-2xl w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+        >
+          <span class="material-symbols-outlined">space_dashboard</span>
+          <span class="font-medium flex-1">Dashboard</span>
+        </div>
+        <div
+          class="text-purple-900 opacity-50 w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+        >
+          <span class="material-symbols-outlined">deployed_code</span>
+          <span class="font-medium flex-1">Product</span>
+        </div>
+        <div
+          class="text-purple-900 opacity-50 w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+        >
+          <span class="material-symbols-outlined">assignment</span>
+          <span class="font-medium flex-1">Vacancy</span>
+        </div>
+        <div
+          class="text-purple-900 opacity-50 w-full px-5 text-xl flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+        >
+          <span class="material-symbols-outlined">groups</span>
+          <span class="font-medium flex-1">Candidates</span>
+        </div>
+        <div
+          class="text-purple-900 opacity-50 w-full px-5 text-xl  flex items-center gap-4 hover:text-[#4f46e5] cursor-pointer"
+        >
+          <span class="material-symbols-outlined">settings</span>
+          <span class="font-medium flex-1">Setting</span>
+        </div>
+      </section>
+    
+
+      <section class="flex-1 p-8 bg-gray-50 min-h-screen w-full flex flex-col items-center">
+  <!-- Page Title -->
+  <h2 class="text-3xl font-bold text-purple-700 mb-8 tracking-wide">
+    Update Job Vacancy
+  </h2>
+
+  <!-- Vacancy Card -->
+  <div class="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-4xl flex flex-col gap-8">
+    
+    <!-- Job Profile & Department -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Job Profile -->
+      <div class="col-span-1 md:col-span-2">
+        <label class="block text-sm font-semibold text-gray-700 mb-2">Job Profile</label>
+        <input
+          type="text"
+          value="Software Engineer"
+          class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+        />
+      </div>
+
+      <!-- Department -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-2">Department</label>
+        <select
+          class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+        >
+          <option selected>IT</option>
+          <option>Sales</option>
+          <option>Data Entry</option>
+          <option>HR</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Job Description -->
+    <div>
+      <label class="block text-sm font-semibold text-gray-700 mb-2">Job Description</label>
+      <textarea
+        rows="4"
+        class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+      >We are seeking a skilled software engineer to join our growing IT team.</textarea>
+    </div>
+
+    <!-- Job Type / Work Mode -->
+    <div>
+      <label class="block text-sm font-semibold text-gray-700 mb-2">Job Type / Work Mode</label>
+      <div class="flex flex-wrap gap-6 mt-2">
+        <label class="flex items-center gap-2">
+          <input type="radio" name="jobType" value="fulltime" checked class="accent-purple-600" />
+          Full-time
+        </label>
+        <label class="flex items-center gap-2">
+          <input type="radio" name="jobType" value="parttime" class="accent-purple-600" />
+          Part-time
+        </label>
+        <label class="flex items-center gap-2">
+          <input type="radio" name="workMode" value="remote" class="accent-purple-600" />
+          Remote
+        </label>
+        <label class="flex items-center gap-2">
+          <input type="radio" name="workMode" value="inoffice" class="accent-purple-600" />
+          In-office
+        </label>
+      </div>
+    </div>
+
+    <!-- Job Requirements -->
+    <div>
+      <label class="block text-sm font-semibold text-gray-700 mb-4">Job Requirements</label>
+      <div class="space-y-3">
+        <!-- Existing Requirements -->
+        <div class="flex items-center gap-3">
+          <input type="text" value="Proficient in JavaScript and Python"
+            class="flex-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm" />
+          <button class="bg-red-500 text-white px-3 py-2 rounded-lg hover:bg-red-600 transition">
+            <span class="material-symbols-outlined text-sm">delete</span>
+          </button>
+        </div>
+        <div class="flex items-center gap-3">
+          <input type="text" value="Strong problem-solving skills"
+            class="flex-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm" />
+          <button class="bg-red-500 text-white px-3 py-2 rounded-lg hover:bg-red-600 transition">
+            <span class="material-symbols-outlined text-sm">delete</span>
+          </button>
+        </div>
+        <div class="flex items-center gap-3">
+          <input type="text" value="Experience with REST APIs"
+            class="flex-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm" />
+          <button class="bg-red-500 text-white px-3 py-2 rounded-lg hover:bg-red-600 transition">
+            <span class="material-symbols-outlined text-sm">delete</span>
+          </button>
+        </div>
+        <div class="flex items-center gap-3">
+          <input type="text" value="Bachelor's degree in Computer Science"
+            class="flex-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm" />
+          <button class="bg-red-500 text-white px-3 py-2 rounded-lg hover:bg-red-600 transition">
+            <span class="material-symbols-outlined text-sm">delete</span>
+          </button>
+        </div>
+
+        <!-- Add New Requirement -->
+        <div class="flex items-center gap-3 pt-2">
+          <input type="text" placeholder="Add new requirement"
+            class="flex-1 p-3 border border-purple-300 rounded-xl focus:ring-2 focus:ring-purple-500" />
+          <button class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition">
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-col md:flex-row gap-4 pt-6">
+      <button
+        type="submit"
+        class="bg-purple-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-purple-700 transition flex items-center gap-2"
+      >
+        <span class="material-symbols-outlined text-sm">update</span> Update Vacancy
+      </button>
+      <button
+        type="button"
+        class="bg-red-500 text-white px-6 py-3 rounded-xl shadow-md hover:bg-red-600 transition flex items-center gap-2"
+      >
+        <span class="material-symbols-outlined text-sm">delete</span> Delete Vacancy
+      </button>
+    </div>
+
+  </div>
+</section>
+
+
+ 
+
+
+    </main>
+  </body>
+</html>
