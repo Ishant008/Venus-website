@@ -193,4 +193,12 @@ nav a.active {
   }
 }
 
+.active-a {
+  padding-top: 0.75rem; 
+  padding-bottom: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); 
+  opacity: 1;
+}
+
+
 
