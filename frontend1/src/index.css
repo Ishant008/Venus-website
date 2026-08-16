@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Prata&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  color: #202124;
+  overflow-x: hidden;
+}
+
+.font-title {
+  font-family: 'Prata', serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #09b850;
+  border-radius: 999px;
+}
+
+@layer components {
+  .container-x {
+    @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-10;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 font-medium text-white transition hover:bg-brand-600 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink-border bg-white px-6 py-3 font-medium text-ink transition hover:border-brand hover:text-brand active:scale-[0.98];
+  }
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 font-medium text-white transition hover:bg-ink-soft active:scale-[0.98];
+  }
+  .section-tag {
+    @apply inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-1.5 text-sm font-medium text-brand-700;
+  }
+  .input-field {
+    @apply w-full rounded-xl border border-ink-border bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-muted focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand-100 transition;
+  }
+  .card {
+    @apply rounded-2xl border border-ink-border bg-white shadow-soft transition hover:shadow-card;
+  }
+}
