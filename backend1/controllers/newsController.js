@@ -104,16 +104,25 @@ const getNewsById = asyncHandler(async (req, res) => {
 // @route   POST /api/news
 // @access  Private/Admin
 const createNews = asyncHandler(async (req, res) => {
-  const { title, summary, body, category, tags, publishDate, isPublished, isDefault, metaTitle, metaDescription } = req.body;
+  const { title, summary, body, category, tags, publishDate, isPublished, isDefault, metaTitle, metaDescription, metaKeywords, imageAlts } = req.body;
 
   if (!title || !summary || !body) {
     throw new ApiError(400, 'Title, summary, and body are required');
   }
 
   let coverImage;
-  if (req.file) {
-    const result = await uploadBufferToCloudinary(req.file.buffer, 'news', 'image');
+  const coverFile = req.files?.coverImage?.[0];
+  if (coverFile) {
+    const result = await uploadBufferToCloudinary(coverFile.buffer, 'news', 'image');
     coverImage = { url: result.secure_url, publicId: result.public_id };
+  }
+
+  const alts = imageAlts ? JSON.parse(imageAlts) : [];
+  const galleryFiles = req.files?.images || [];
+  const images = [];
+  for (let i = 0; i < galleryFiles.length; i++) {
+    const result = await uploadBufferToCloudinary(galleryFiles[i].buffer, 'news', 'image');
+    images.push({ url: result.secure_url, publicId: result.public_id, alt: alts[i] || '' });
   }
 
   const item = await News.create({
@@ -122,11 +131,12 @@ const createNews = asyncHandler(async (req, res) => {
     body,
     category,
     coverImage,
+    images,
     tags: Array.isArray(tags) ? tags : tags ? JSON.parse(tags) : [],
     publishDate: publishDate ? new Date(publishDate) : new Date(),
     isPublished: isPublished === undefined ? true : isPublished === 'true' || isPublished === true,
     isDefault: isDefault === 'true' || isDefault === true,
-    seo: { metaTitle, metaDescription, ogImage: coverImage?.url },
+    seo: { metaTitle, metaDescription, metaKeywords, ogImage: coverImage?.url },
     author: req.user._id,
   });
 
@@ -140,7 +150,21 @@ const updateNews = asyncHandler(async (req, res) => {
   const item = await News.findById(req.params.id);
   if (!item) throw new ApiError(404, 'News article not found');
 
-  const { title, summary, body, category, tags, publishDate, isPublished, isDefault, metaTitle, metaDescription } = req.body;
+  const {
+    title,
+    summary,
+    body,
+    category,
+    tags,
+    publishDate,
+    isPublished,
+    isDefault,
+    metaTitle,
+    metaDescription,
+    metaKeywords,
+    removedImageIds,
+    imageAlts,
+  } = req.body;
 
   if (title) item.title = title;
   if (summary) item.summary = summary;
@@ -150,15 +174,41 @@ const updateNews = asyncHandler(async (req, res) => {
   if (publishDate) item.publishDate = new Date(publishDate);
   if (isPublished !== undefined) item.isPublished = isPublished === 'true' || isPublished === true;
   if (isDefault !== undefined) item.isDefault = isDefault === 'true' || isDefault === true;
-  if (metaTitle !== undefined || metaDescription !== undefined) {
-    item.seo = { ...item.seo, metaTitle: metaTitle ?? item.seo?.metaTitle, metaDescription: metaDescription ?? item.seo?.metaDescription };
+  if (metaTitle !== undefined || metaDescription !== undefined || metaKeywords !== undefined) {
+    item.seo = {
+      ...item.seo,
+      metaTitle: metaTitle ?? item.seo?.metaTitle,
+      metaDescription: metaDescription ?? item.seo?.metaDescription,
+      metaKeywords: metaKeywords ?? item.seo?.metaKeywords,
+    };
   }
 
-  if (req.file) {
+  const coverFile = req.files?.coverImage?.[0];
+  if (coverFile) {
     if (item.coverImage?.publicId) await deleteFromCloudinary(item.coverImage.publicId);
-    const result = await uploadBufferToCloudinary(req.file.buffer, 'news', 'image');
+    const result = await uploadBufferToCloudinary(coverFile.buffer, 'news', 'image');
     item.coverImage = { url: result.secure_url, publicId: result.public_id };
     item.seo.ogImage = result.secure_url;
+  }
+
+  // Remove selected gallery images
+  if (removedImageIds) {
+    const idsToRemove = Array.isArray(removedImageIds) ? removedImageIds : JSON.parse(removedImageIds);
+    const toDelete = item.images.filter((img) => idsToRemove.includes(img.publicId));
+    for (const img of toDelete) {
+      await deleteFromCloudinary(img.publicId);
+    }
+    item.images = item.images.filter((img) => !idsToRemove.includes(img.publicId));
+  }
+
+  // Add new gallery images
+  const galleryFiles = req.files?.images || [];
+  if (galleryFiles.length > 0) {
+    const alts = imageAlts ? JSON.parse(imageAlts) : [];
+    for (let i = 0; i < galleryFiles.length; i++) {
+      const result = await uploadBufferToCloudinary(galleryFiles[i].buffer, 'news', 'image');
+      item.images.push({ url: result.secure_url, publicId: result.public_id, alt: alts[i] || '' });
+    }
   }
 
   await item.save();
@@ -173,6 +223,9 @@ const deleteNews = asyncHandler(async (req, res) => {
   if (!item) throw new ApiError(404, 'News article not found');
 
   if (item.coverImage?.publicId) await deleteFromCloudinary(item.coverImage.publicId);
+  for (const img of item.images || []) {
+    await deleteFromCloudinary(img.publicId);
+  }
   await item.deleteOne();
 
   res.json({ success: true, message: 'News article deleted' });

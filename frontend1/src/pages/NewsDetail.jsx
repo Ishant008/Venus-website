@@ -81,7 +81,7 @@ export default function NewsDetail() {
         url={`/news/${item.slug}`}
         type="article"
         publishedTime={item.publishDate}
-        keywords={item.tags?.join(', ')}
+        keywords={item.seo?.metaKeywords}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -92,7 +92,7 @@ export default function NewsDetail() {
         <NewsImage src={item.coverImage?.url} alt={item.title} className="h-[45vh] max-h-[500px] w-full sm:h-[55vh]" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
         <div className="container-x absolute inset-x-0 bottom-0 pb-10 text-white">
-          <Link to="/news" className="mb-4 mr-6 inline-flex items-center gap-2 text-sm text-white/80 hover:text-brand">
+          <Link to="/news" className="mb-4 inline-flex items-center gap-2 text-sm text-white/80 hover:text-brand">
             <ArrowLeft size={16} /> Back to News
           </Link>
           <span className="rounded bg-brand px-2.5 py-1 text-xs font-bold uppercase tracking-wide">{item.category}</span>
@@ -119,6 +119,17 @@ export default function NewsDetail() {
             className="prose prose-ink mt-6 max-w-none prose-headings:font-title prose-a:text-brand"
             dangerouslySetInnerHTML={{ __html: item.body }}
           />
+
+          {item.images?.length > 0 && (
+            <div className={`mt-8 grid gap-3 ${item.images.length === 1 ? 'grid-cols-1' : 'sm:grid-cols-2'}`}>
+              {item.images.map((img) => (
+                <figure key={img.publicId} className="overflow-hidden rounded-xl">
+                  <img src={img.url} alt={img.alt || item.title} loading="lazy" className="aspect-video w-full object-cover" />
+                  {img.alt && <figcaption className="mt-1.5 text-xs text-ink-muted">{img.alt}</figcaption>}
+                </figure>
+              ))}
+            </div>
+          )}
 
           {item.tags?.length > 0 && (
             <div className="mt-8 flex flex-wrap gap-2">

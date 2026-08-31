@@ -21,8 +21,8 @@ router.get('/', getNewsList);
 // Admin (before /:slug)
 router.get('/admin/all', protect, restrictTo('admin'), getAllNewsAdmin);
 router.get('/admin/:id', protect, restrictTo('admin'), getNewsById);
-router.post('/', protect, restrictTo('admin'), uploadImage.single('coverImage'), createNews);
-router.put('/:id', protect, restrictTo('admin'), uploadImage.single('coverImage'), updateNews);
+router.post('/', protect, restrictTo('admin'), uploadImage.fields([{ name: 'coverImage', maxCount: 1 }, { name: 'images', maxCount: 6 }]), createNews);
+router.put('/:id', protect, restrictTo('admin'), uploadImage.fields([{ name: 'coverImage', maxCount: 1 }, { name: 'images', maxCount: 6 }]), updateNews);
 router.delete('/:id', protect, restrictTo('admin'), deleteNews);
 
 // Public single (last)

@@ -11,6 +11,13 @@ const newsSchema = new mongoose.Schema(
       url: { type: String },
       publicId: { type: String },
     },
+    images: [
+      {
+        url: { type: String, required: true },
+        publicId: { type: String, required: true },
+        alt: { type: String, default: '' },
+      },
+    ],
     category: {
       type: String,
       enum: ['Company News', 'Product Update', 'Press Release', 'Event', 'General'],
@@ -24,6 +31,7 @@ const newsSchema = new mongoose.Schema(
     seo: {
       metaTitle: { type: String },
       metaDescription: { type: String },
+      metaKeywords: { type: String }, // comma-separated, SEO/SMO only — never rendered on the page
       ogImage: { type: String },
     },
     author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
