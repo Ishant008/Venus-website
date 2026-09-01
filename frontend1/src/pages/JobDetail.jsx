@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import { ArrowLeft, MapPin, Clock, Briefcase, UploadCloud, CheckCircle2 } from 'lucide-react';
 import api from '../lib/api';
@@ -64,6 +65,36 @@ export default function JobDetail() {
   return (
     <>
       <SEO title={vacancy.title} description={vacancy.description?.slice(0, 160)} url={`/career/${vacancy.slug}`} />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'JobPosting',
+            title: vacancy.title,
+            description: vacancy.description,
+            datePosted: vacancy.createdAt,
+            employmentType: { 'Full-time': 'FULL_TIME', 'Part-time': 'PART_TIME', Contract: 'CONTRACTOR', Internship: 'INTERN' }[
+              vacancy.employmentType
+            ] || 'FULL_TIME',
+            hiringOrganization: {
+              '@type': 'Organization',
+              name: 'Venus Global Enterprises',
+              sameAs: import.meta.env.VITE_SITE_URL || undefined,
+            },
+            jobLocation: {
+              '@type': 'Place',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: vacancy.location,
+                addressCountry: 'IN',
+              },
+            },
+            ...(vacancy.experience && vacancy.experience !== 'Not specified'
+              ? { experienceRequirements: vacancy.experience }
+              : {}),
+          })}
+        </script>
+      </Helmet>
       <section className="container-x py-14">
         <Link to="/career" className="mb-8 inline-flex items-center gap-2 text-sm text-ink-muted hover:text-brand">
           <ArrowLeft size={16} /> Back to Careers

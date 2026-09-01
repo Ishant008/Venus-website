@@ -57,6 +57,13 @@ app.get('/api/health', (req, res) => {
   res.json({ success: true, message: 'Venus API is running', time: new Date().toISOString() });
 });
 
+// SEO feeds — served at the site root so search engines/crawlers find them
+// at the conventional /sitemap.xml and /rss.xml paths (see README for the
+// reverse-proxy note needed if the frontend is hosted on a different origin).
+const { getSitemap, getRssFeed } = require('./controllers/feedController');
+app.get('/sitemap.xml', getSitemap);
+app.get('/rss.xml', getRssFeed);
+
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/products', require('./routes/productRoutes'));

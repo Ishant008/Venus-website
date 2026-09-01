@@ -52,3 +52,19 @@ body {
     @apply rounded-2xl border border-ink-border bg-white shadow-soft transition hover:shadow-card;
   }
 }
+
+/* TipTap rich text editor */
+.rte-wrapper .ProseMirror {
+  outline: none;
+}
+.rte-wrapper .ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  color: #c4c5c7;
+  pointer-events: none;
+}
+.rte-wrapper .ProseMirror a {
+  color: #09b850;
+  text-decoration: underline;
+}

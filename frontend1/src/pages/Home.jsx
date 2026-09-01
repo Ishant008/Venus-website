@@ -12,6 +12,7 @@ import {
   Wrench,
   Check,
   ArrowRight,
+  Sparkles,
 } from 'lucide-react';
 import SEO from '../components/common/SEO';
 
@@ -92,54 +93,95 @@ export default function Home() {
         url="/"
       />
 
-      {/* Hero */}
-      <section className="container-x flex flex-col items-center gap-10 py-10 lg:flex-row lg:justify-center">
-        <div className="flex w-full flex-col gap-8 pb-8 pt-6 sm:items-start lg:w-[55%]">
-          <div className="w-fit rounded bg-ink-surface px-6 py-2 text-sm shadow-lg">🤩 Award-winning services</div>
-          <h1 className="text-5xl leading-tight sm:text-6xl lg:text-6xl">
-            We specialize in <br />
-            <span className="text-brand">{typedText}</span>
-            <span className="animate-pulse text-brand">|</span>
-          </h1>
-          <p className="text-ink-muted">
-            We specialize in scanning &amp; digitization, offer a wide range of products from furniture to
-            clothing, and are expanding with a dynamic IT department to shape the future of technology.
-          </p>
-          <div className="flex w-full flex-col gap-6 sm:w-[90%] sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-center justify-center gap-2 rounded py-2 shadow-lg sm:justify-start sm:py-0 sm:shadow-none">
-              <ScanLine className="text-brand" size={22} />
-              <span className="font-semibold">End-to-End Digitization</span>
-            </div>
-            <div className="flex items-center justify-center gap-2 rounded py-2 shadow-lg sm:justify-start sm:py-0 sm:shadow-none">
-              <Monitor className="text-brand" size={22} />
-              <span className="font-semibold">Future-Ready IT Solutions</span>
-            </div>
-          </div>
-        </div>
+      {/* ───────────────── Hero ───────────────── */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-ink-surface to-white">
+        {/* Decorative background blobs */}
+        <div className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-brand-100 opacity-50 blur-3xl" />
+        <div className="pointer-events-none absolute -right-24 top-40 h-80 w-80 rounded-full bg-brand-50 opacity-70 blur-3xl" />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.03]"
+          style={{ backgroundImage: 'radial-gradient(#202124 1px, transparent 1px)', backgroundSize: '22px 22px' }}
+        />
 
-        <div className="lg:w-[40%] lg:max-h-full h-[600px] w-[90%]  rounded-lg relative bg-cover bg-center  bg-no-repeat  bg-[url(./assets/homepage/HERO.gif)]">
-          {/* <img src="/assets/homepage/HERO.gif" alt="Venus Global" className="h-full w-full rounded-lg object-cover" /> */}
-          <div className="absolute -top-6 -right-4 rounded-lg bg-white p-4 shadow-md md:-right-10">
-            <span className="font-semibold text-brand">6M+</span> Documents Digitized
+        <div className="container-x relative grid gap-14 py-16 lg:grid-cols-2 lg:items-center lg:gap-10 lg:py-24">
+          {/* Text column */}
+          <div className="flex animate-fade-up flex-col items-start gap-7">
+            <div className="flex w-fit items-center gap-2 rounded-full bg-white px-5 py-2 text-sm font-medium text-ink-soft shadow-soft ring-1 ring-ink-border">
+              <Sparkles size={15} className="text-brand" /> Award-winning services
+            </div>
+
+            <h1 className="text-4xl leading-[1.1] sm:text-5xl lg:text-6xl">
+              We specialize in <br className="hidden sm:block" />
+              <span className="text-brand">{typedText}</span>
+              <span className="animate-pulse text-brand">|</span>
+            </h1>
+
+            <p className="max-w-lg text-ink-muted">
+              We specialize in scanning &amp; digitization, offer a wide range of products from furniture to
+              clothing, and are expanding with a dynamic IT department to shape the future of technology.
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <Link to="/services" className="btn-primary">
+                Explore Services <ArrowRight size={18} />
+              </Link>
+              <Link to="/contact" className="btn-outline">
+                Get in Touch
+              </Link>
+            </div>
+
+            <div className="mt-2 flex w-full flex-col gap-4 border-t border-ink-border pt-6 sm:flex-row sm:gap-8">
+              <div className="flex items-center gap-2.5">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand">
+                  <ScanLine size={20} />
+                </span>
+                <span className="font-semibold text-ink">End-to-End Digitization</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand">
+                  <Monitor size={20} />
+                </span>
+                <span className="font-semibold text-ink">Future-Ready IT Solutions</span>
+              </div>
+            </div>
           </div>
-          <div className="absolute -left-4 bottom-10 rounded-lg bg-ink p-4 text-white shadow-xl md:-left-10">
-            Growing IT Team
+
+          {/* Visual column — static image composition, no GIF */}
+          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-2xl sm:aspect-[5/4] lg:aspect-[4/5]">
+              <img src="/assets/homepage/office.jpg" alt="Venus Global team at work" className="h-full w-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
+            </div>
+
+            {/* Accent secondary image */}
+            <div className="absolute -bottom-8 -left-6 hidden h-32 w-32 overflow-hidden rounded-2xl border-4 border-white shadow-xl sm:block lg:h-36 lg:w-36">
+              <img src="/assets/homepage/cool-img.jpg" alt="Venus Global" className="h-full w-full object-cover" />
+            </div>
+
+            {/* Floating stat cards */}
+            <div className="absolute -top-5 right-2 flex items-center gap-3 rounded-2xl bg-white/95 p-4 shadow-xl backdrop-blur sm:right-6">
+              <span className="font-title text-2xl text-brand">6M+</span>
+              <span className="max-w-[90px] text-xs font-medium leading-tight text-ink-soft">Documents Digitized</span>
+            </div>
+            <div className="absolute -right-2 bottom-10 rounded-2xl bg-ink px-5 py-3 text-sm font-medium text-white shadow-xl sm:-right-6">
+              Growing IT Team
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Trusted partners marquee */}
-      <section className="container-x my-14 overflow-hidden">
-        <div className="flex flex-col items-center gap-5 sm:flex-row sm:gap-0">
-          <div className="shrink-0 text-2xl font-bold sm:mr-8">Trusted Partners</div>
-          <div className="relative flex-1 overflow-hidden">
-            <div className="flex w-max animate-marquee gap-10">
+      {/* ───────────────── Trusted partners marquee ───────────────── */}
+      <section className="border-y border-ink-border bg-white py-10">
+        <div className="container-x flex flex-col items-center gap-6 sm:flex-row sm:gap-10">
+          <div className="shrink-0 text-lg font-semibold text-ink-soft sm:text-xl">Trusted Partners</div>
+          <div className="relative w-full flex-1 overflow-hidden">
+            <div className="flex w-max animate-marquee items-center gap-14">
               {[...clientLogos, ...clientLogos].map((n, i) => (
                 <img
                   key={i}
                   src={`/assets/homepage/client/client${n}.png`}
                   alt=""
-                  className="h-20 w-20 shrink-0 transition-transform duration-300 hover:scale-105 lg:h-28 lg:w-28"
+                  className="h-14 w-14 shrink-0 opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 lg:h-20 lg:w-20"
                 />
               ))}
             </div>
@@ -149,77 +191,81 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About / stats */}
-      <section className="container-x my-10 flex flex-col gap-10 lg:flex-row lg:justify-between">
-        <div className="flex w-full flex-col gap-6 sm:flex-row sm:justify-between lg:w-[53%]">
-          <div className="w-full sm:w-[48%]">
-            <img className="w-full rounded-md object-cover" src="/assets/homepage/office.jpg" alt="Venus Global office" />
-          </div>
-          <div className="flex w-full flex-col gap-10 sm:w-[48%]">
-            <div className="flex w-full justify-center gap-4">
-              <div className="flex w-1/2 flex-col items-center justify-center rounded-md bg-ink px-2 py-5 text-white">
-                <span className="text-2xl font-bold">5+ Years</span>
-                <span className="w-full text-center text-sm">of Trusted Services</span>
+      {/* ───────────────── About / stats ───────────────── */}
+      <section className="container-x py-20 sm:py-24">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="grid grid-cols-2 gap-5">
+            <img
+              className="col-span-2 aspect-[16/10] w-full rounded-2xl object-cover shadow-card sm:col-span-1 sm:aspect-square"
+              src="/assets/homepage/office.jpg"
+              alt="Venus Global office"
+            />
+            <div className="col-span-2 grid grid-cols-2 gap-4 sm:col-span-1 sm:grid-cols-1">
+              <div className="flex flex-col items-center justify-center gap-1 rounded-2xl bg-ink px-4 py-8 text-center text-white">
+                <span className="font-title text-3xl">5+ Years</span>
+                <span className="text-sm text-white/70">of Trusted Services</span>
               </div>
-              <div className="flex w-1/2 items-center justify-center rounded-md bg-brand px-2 py-5 text-center text-xl font-bold text-white">
+              <div className="flex items-center justify-center rounded-2xl bg-brand px-4 py-8 text-center text-lg font-semibold text-white">
                 Multiple Govt. Clients
               </div>
             </div>
-            <img className="w-full rounded-md object-cover" src="/assets/homepage/cool-img.jpg" alt="Venus Global team" />
+            <img
+              className="col-span-2 aspect-[16/9] w-full rounded-2xl object-cover shadow-card"
+              src="/assets/homepage/cool-img.jpg"
+              alt="Venus Global team"
+            />
           </div>
-        </div>
 
-        <div className="flex w-full flex-col justify-center gap-8 lg:w-[42%]">
-          <div className="w-fit rounded-lg bg-ink-surface px-4 py-2 shadow-md">Empowering Businesses with Technology</div>
-          <h2 className="text-3xl sm:text-5xl">
-            Delivering seamless scanning, secure digitalization &amp; modern software solutions.
-          </h2>
-          <p className="text-ink-muted">
-            We specialize in document scanning &amp; digitalization for government and enterprises, while also
-            offering a diverse range of products including electronics, furniture, clothing, and stationery. Our
-            new software development division is dedicated to building custom, future-ready applications that
-            help organizations grow and innovate.
-          </p>
-          <ul className="flex flex-col gap-4">
-            {trustChecklist.map((item) => (
-              <li key={item} className="flex items-center gap-4">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand">
-                  <Check size={14} />
-                </span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          <Link to="/about" className="btn-dark w-fit">
-            About More <ArrowRight size={18} />
-          </Link>
+          <div className="flex flex-col justify-center gap-7">
+            <span className="section-tag w-fit">Empowering Businesses with Technology</span>
+            <h2 className="font-title text-3xl leading-snug sm:text-4xl">
+              Delivering seamless scanning, secure digitalization &amp; modern software solutions.
+            </h2>
+            <p className="text-ink-muted">
+              We specialize in document scanning &amp; digitalization for government and enterprises, while also
+              offering a diverse range of products including electronics, furniture, clothing, and stationery. Our
+              new software development division is dedicated to building custom, future-ready applications that
+              help organizations grow and innovate.
+            </p>
+            <ul className="grid gap-4 sm:grid-cols-2">
+              {trustChecklist.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand">
+                    <Check size={14} />
+                  </span>
+                  <span className="text-sm text-ink-soft">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <Link to="/about" className="btn-dark w-fit">
+              About More <ArrowRight size={18} />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Services (dark section) */}
-      <section className="w-full bg-ink py-16 text-white">
-        <div className="container-x flex flex-col items-center">
-          <span className="my-6 rounded bg-ink-soft px-4 py-2 text-center">Smart Solutions, Trusted Results</span>
-          <h2 className="my-6 w-full text-center text-4xl sm:w-[80%] sm:text-5xl lg:w-[60%] lg:text-6xl">
+      {/* ───────────────── Services (dark section) ───────────────── */}
+      <section className="w-full bg-ink py-20 text-white sm:py-24">
+        <div className="container-x flex flex-col items-center text-center">
+          <span className="section-tag bg-white/10 text-brand-200">Smart Solutions, Trusted Results</span>
+          <h2 className="mt-6 max-w-3xl font-title text-3xl sm:text-5xl">
             We specialize in the following services
           </h2>
 
-          <div className="my-10 grid w-full grid-cols-1 gap-x-4 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid w-full grid-cols-1 gap-x-6 gap-y-14 text-left sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (
-              <div key={s.title} className="group relative flex flex-col items-center rounded-md bg-ink-soft pb-8 pt-10">
-                <div className="absolute -top-8 left-6 flex items-center justify-center rounded-full bg-white p-4">
-                  <s.icon className="text-brand" size={26} />
+              <div key={s.title} className="group relative flex flex-col rounded-2xl bg-ink-soft pb-8 pt-12 transition hover:-translate-y-1 hover:bg-ink-soft/80">
+                <div className="absolute -top-7 left-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-lg">
+                  <s.icon className="text-brand" size={24} />
                 </div>
-                <div className="mt-6 w-[85%]">
-                  <div className="my-6 flex flex-col gap-3">
-                    <h3 className="text-2xl transition-colors duration-150 group-hover:text-brand">{s.title}</h3>
-                    <p className="text-sm text-white/70">{s.desc}</p>
-                  </div>
+                <div className="mt-4 flex flex-1 flex-col px-6">
+                  <h3 className="text-xl transition-colors duration-150 group-hover:text-brand">{s.title}</h3>
+                  <p className="mt-3 flex-1 text-sm text-white/65">{s.desc}</p>
                   <Link
                     to="/services"
-                    className="flex items-center gap-2 text-brand transition-all duration-150 ease-in-out hover:gap-3"
+                    className="mt-5 flex items-center gap-2 text-sm font-medium text-brand transition-all duration-150 ease-in-out hover:gap-3"
                   >
-                    Know more <ArrowRight size={18} />
+                    Know more <ArrowRight size={16} />
                   </Link>
                 </div>
               </div>

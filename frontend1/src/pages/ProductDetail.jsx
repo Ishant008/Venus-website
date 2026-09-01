@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { CheckCircle2, ArrowLeft, MessageSquareText } from 'lucide-react';
 import api from '../lib/api';
 import SEO from '../components/common/SEO';
@@ -48,6 +49,25 @@ export default function ProductDetail() {
         url={`/products/${product.slug}`}
         type="product"
       />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Product',
+            name: product.name,
+            description: product.shortDescription || product.description,
+            image: product.images?.map((img) => img.url),
+            category: product.category,
+            brand: { '@type': 'Brand', name: 'Venus Global Enterprises' },
+            offers: {
+              '@type': 'Offer',
+              availability: 'https://schema.org/InStock',
+              url: `${import.meta.env.VITE_SITE_URL || ''}/products/${product.slug}`,
+              priceSpecification: { '@type': 'PriceSpecification', description: 'Contact us for pricing' },
+            },
+          })}
+        </script>
+      </Helmet>
       <section className="container-x py-14">
         <Link to="/products" className="mb-8 inline-flex items-center gap-2 text-sm text-ink-muted hover:text-brand">
           <ArrowLeft size={16} /> Back to Products

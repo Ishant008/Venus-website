@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Menu, X, ShieldCheck } from 'lucide-react';
+import { Menu, X, ShieldCheck, Download } from 'lucide-react';
+import { usePwaInstall } from '../../hooks/usePwaInstall';
 
 const links = [
-  { to: '/', label: 'HOME' },
-  { to: '/about', label: 'ABOUT' },
-  { to: '/products', label: 'PRODUCTS' },
-  { to: '/services', label: 'SERVICES' },
-  { to: '/news', label: 'NEWS & UPDATES' },
-  { to: '/career', label: 'CAREER' },
-  { to: '/contact', label: 'CONTACT' },
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About' },
+  { to: '/products', label: 'Products' },
+  { to: '/services', label: 'Services' },
+  { to: '/news', label: 'News & Updates' },
+  { to: '/career', label: 'Career' },
+  { to: '/contact', label: 'Contact' },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { canInstall, promptInstall } = usePwaInstall();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -33,9 +35,11 @@ export default function Navbar() {
       }`}
     >
       <div className="container-x flex items-center justify-between py-4">
-        <Link to="/" className="flex items-center gap-2 font-title text-xl text-green-500">
-         
-          Venus <span className=" text-ink-muted ">Global</span>
+        <Link to="/" className="flex items-center gap-2 font-title text-xl text-ink">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand text-white">
+            <ShieldCheck size={18} />
+          </span>
+          Venus <span className="hidden text-ink-muted sm:inline">Global</span>
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">
@@ -55,6 +59,14 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
+          {canInstall && (
+            <button onClick={promptInstall} className="btn-outline !px-4 !py-2.5 text-sm" title="Install Venus Global as an app">
+              <Download size={16} /> Install App
+            </button>
+          )}
+          <Link to="/admin/login" className="btn-outline !px-5 !py-2.5 text-sm">
+            Admin
+          </Link>
           <Link to="/contact" className="btn-primary !px-5 !py-2.5 text-sm">
             Get in Touch
           </Link>
@@ -101,7 +113,18 @@ export default function Navbar() {
                 {l.label}
               </NavLink>
             ))}
-            <Link to="/admin/login" onClick={() => setOpen(false)} className="btn-outline mt-2 justify-center">
+            {canInstall && (
+              <button
+                onClick={() => {
+                  promptInstall();
+                  setOpen(false);
+                }}
+                className="btn-outline justify-center"
+              >
+                <Download size={16} /> Install App
+              </button>
+            )}
+            <Link to="/admin/login" onClick={() => setOpen(false)} className="btn-outline justify-center">
               Admin Login
             </Link>
             <Link to="/contact" onClick={() => setOpen(false)} className="btn-primary justify-center">

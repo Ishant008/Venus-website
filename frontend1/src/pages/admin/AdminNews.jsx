@@ -7,6 +7,7 @@ import EmptyState from '../../components/common/EmptyState';
 import Modal from '../../components/admin/Modal';
 import ConfirmDialog from '../../components/admin/ConfirmDialog';
 import SeoPanel from '../../components/admin/SeoPanel';
+import RichTextEditor from '../../components/admin/RichTextEditor';
 import { analyzeSeo, suggestKeywords } from '../../lib/seoHelper';
 
 const categories = ['General', 'Company News', 'Product Update', 'Press Release', 'Event'];
@@ -272,16 +273,10 @@ export default function AdminNews() {
                 onChange={(e) => setForm({ ...form, summary: e.target.value })}
               />
               <div>
-                <textarea
-                  required
-                  rows={8}
-                  placeholder="Full article body — basic HTML is supported (e.g. <p>, <b>, <a href>)"
-                  className="input-field resize-none font-mono text-xs"
-                  value={form.body}
-                  onChange={(e) => setForm({ ...form, body: e.target.value })}
-                />
+                <p className="mb-1.5 text-sm font-medium text-ink-soft">Article body</p>
+                <RichTextEditor value={form.body} onChange={(html) => setForm((f) => ({ ...f, body: html }))} />
                 <p className="mt-1 text-xs text-ink-muted">
-                  Tip: wrap paragraphs in &lt;p&gt;...&lt;/p&gt;. This is rendered as rich content on the article page.
+                  Formatted with the toolbar above — this is rendered exactly as-is on the article page.
                 </p>
               </div>
 
