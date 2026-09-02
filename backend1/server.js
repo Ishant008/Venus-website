@@ -6,8 +6,19 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const mongoSanitize = require('express-mongo-sanitize');
 const hpp = require('hpp');
+const Sentry = require('@sentry/node');
 
 dotenv.config();
+
+// Error tracking — only activates when SENTRY_DSN is set in .env, so this
+// is a safe no-op for setups that haven't configured Sentry yet.
+if (process.env.SENTRY_DSN) {
+  Sentry.init({
+    dsn: process.env.SENTRY_DSN,
+    environment: process.env.NODE_ENV || 'development',
+    tracesSampleRate: 0.2,
+  });
+}
 
 const connectDB = require('./config/db');
 const { notFound, errorHandler } = require('./middleware/errorHandler');
@@ -72,6 +83,12 @@ app.use('/api/applicants', require('./routes/applicantRoutes'));
 app.use('/api/news', require('./routes/newsRoutes'));
 
 app.use(notFound);
+
+// Sentry must see errors before our own JSON error handler formats them
+if (process.env.SENTRY_DSN) {
+  Sentry.setupExpressErrorHandler(app);
+}
+
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;

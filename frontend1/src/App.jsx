@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import SiteLayout from './components/layout/SiteLayout';
 import ProtectedRoute from './components/admin/ProtectedRoute';
+import Analytics from './components/common/Analytics';
 
 import Home from './pages/Home';
 import Products from './pages/Products';
@@ -23,36 +25,51 @@ import AdminApplicants from './pages/admin/AdminApplicants';
 import AdminNews from './pages/admin/AdminNews';
 import AdminSettings from './pages/admin/AdminSettings';
 
+const GSC_VERIFICATION = import.meta.env.VITE_GOOGLE_SITE_VERIFICATION;
+
 export default function App() {
   return (
-    <Routes>
-      {/* Public website */}
-      <Route element={<SiteLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:slug" element={<ProductDetail />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/career" element={<Career />} />
-        <Route path="/career/:slug" element={<JobDetail />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/news/:slug" element={<NewsDetail />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
+    <>
+      {/* Google Search Console site-ownership verification (meta-tag method) —
+          only rendered when VITE_GOOGLE_SITE_VERIFICATION is set in .env */}
+      {GSC_VERIFICATION && (
+        <Helmet>
+          <meta name="google-site-verification" content={GSC_VERIFICATION} />
+        </Helmet>
+      )}
 
-      {/* Admin */}
-      <Route path="/admin/login" element={<AdminLogin />} />
-      <Route element={<ProtectedRoute />}>
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route path="dashboard" element={<AdminDashboard />} />
-          <Route path="products" element={<AdminProducts />} />
-          <Route path="vacancies" element={<AdminVacancies />} />
-          <Route path="applicants" element={<AdminApplicants />} />
-          <Route path="news" element={<AdminNews />} />
-          <Route path="settings" element={<AdminSettings />} />
+      {/* Analytics is a silent, route-aware component — renders nothing */}
+      <Analytics />
+
+      <Routes>
+        {/* Public website */}
+        <Route element={<SiteLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:slug" element={<ProductDetail />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/career/:slug" element={<JobDetail />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/news/:slug" element={<NewsDetail />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
-      </Route>
-    </Routes>
+
+        {/* Admin */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="products" element={<AdminProducts />} />
+            <Route path="vacancies" element={<AdminVacancies />} />
+            <Route path="applicants" element={<AdminApplicants />} />
+            <Route path="news" element={<AdminNews />} />
+            <Route path="settings" element={<AdminSettings />} />
+          </Route>
+        </Route>
+      </Routes>
+    </>
   );
 }

@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   ScanLine,
   Monitor,
@@ -16,8 +17,7 @@ import {
 } from 'lucide-react';
 import SEO from '../components/common/SEO';
 
-// Same rotating phrases as the original site's typing effect
-const TYPING_TEXTS = ['Scanning & Digitization', 'Selling Quality Products', 'Innovative IT Solutions'];
+// Rotating phrases come from the active language's translation file (home.typingTexts)
 
 function useTypingEffect(texts, { typeSpeed = 100, deleteSpeed = 50, pause = 1500, gap = 300 } = {}) {
   const [display, setDisplay] = useState('');
@@ -62,28 +62,19 @@ function useTypingEffect(texts, { typeSpeed = 100, deleteSpeed = 50, pause = 150
   return display;
 }
 
-const trustChecklist = [
-  'Growing Software Development Team',
-  'Trusted by Government & Corporate Clients',
-  'Expertise in Scanning & Digitalization',
-  'Wide Range of Products Across Categories',
-];
-
-const services = [
-  { icon: ScanLine, title: 'Scanning & Digitization', desc: 'Converting physical files into secure, digital formats.' },
-  { icon: FolderOpen, title: 'Data Management', desc: 'Organizing, storing & retrieving records with ease.' },
-  { icon: ShoppingBag, title: 'Product Supply', desc: 'Quality furniture, electronics, clothing & more.' },
-  { icon: NotebookPen, title: 'Stationery & Office Needs', desc: 'Supplying everyday essentials for smooth operations.' },
-  { icon: Globe, title: 'Web Development', desc: 'Building fast, modern & user-friendly websites.' },
-  { icon: Code2, title: 'Software Development', desc: 'Custom solutions to optimize business workflows.' },
-  { icon: Headset, title: 'IT Consulting', desc: 'Helping businesses adopt the right digital strategies.' },
-  { icon: Wrench, title: 'Support & Maintenance', desc: 'Reliable after-sales and technical assistance.' },
-];
+const serviceIcons = [ScanLine, FolderOpen, ShoppingBag, NotebookPen, Globe, Code2, Headset, Wrench];
 
 const clientLogos = [1, 2, 3, 4, 5, 6, 7];
 
 export default function Home() {
-  const typedText = useTypingEffect(TYPING_TEXTS);
+  const { t, i18n } = useTranslation();
+  const typingTexts = useMemo(() => t('home.typingTexts', { returnObjects: true }), [i18n.language, t]);
+  const typedText = useTypingEffect(typingTexts);
+  const trustChecklist = useMemo(() => t('home.trustChecklist', { returnObjects: true }), [i18n.language, t]);
+  const services = useMemo(() => {
+    const translated = t('home.services', { returnObjects: true });
+    return serviceIcons.map((icon, i) => ({ icon, ...translated[i] }));
+  }, [i18n.language, t]);
 
   return (
     <>
@@ -107,26 +98,23 @@ export default function Home() {
           {/* Text column */}
           <div className="flex animate-fade-up flex-col items-start gap-7">
             <div className="flex w-fit items-center gap-2 rounded-full bg-white px-5 py-2 text-sm font-medium text-ink-soft shadow-soft ring-1 ring-ink-border">
-              <Sparkles size={15} className="text-brand" /> Award-winning services
+              <Sparkles size={15} className="text-brand" /> {t('home.badge')}
             </div>
 
             <h1 className="text-4xl leading-[1.1] sm:text-5xl lg:text-6xl">
-              We specialize in <br className="hidden sm:block" />
+              {t('home.headingPrefix')} <br className="hidden sm:block" />
               <span className="text-brand">{typedText}</span>
               <span className="animate-pulse text-brand">|</span>
             </h1>
 
-            <p className="max-w-lg text-ink-muted">
-              We specialize in scanning &amp; digitization, offer a wide range of products from furniture to
-              clothing, and are expanding with a dynamic IT department to shape the future of technology.
-            </p>
+            <p className="max-w-lg text-ink-muted">{t('home.description')}</p>
 
             <div className="flex flex-wrap gap-4">
               <Link to="/services" className="btn-primary">
-                Explore Services <ArrowRight size={18} />
+                {t('home.exploreServices')} <ArrowRight size={18} />
               </Link>
               <Link to="/contact" className="btn-outline">
-                Get in Touch
+                {t('home.getInTouch')}
               </Link>
             </div>
 
@@ -135,13 +123,13 @@ export default function Home() {
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand">
                   <ScanLine size={20} />
                 </span>
-                <span className="font-semibold text-ink">End-to-End Digitization</span>
+                <span className="font-semibold text-ink">{t('home.endToEndDigitization')}</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand">
                   <Monitor size={20} />
                 </span>
-                <span className="font-semibold text-ink">Future-Ready IT Solutions</span>
+                <span className="font-semibold text-ink">{t('home.futureReadyIt')}</span>
               </div>
             </div>
           </div>
@@ -161,10 +149,10 @@ export default function Home() {
             {/* Floating stat cards */}
             <div className="absolute -top-5 right-2 flex items-center gap-3 rounded-2xl bg-white/95 p-4 shadow-xl backdrop-blur sm:right-6">
               <span className="font-title text-2xl text-brand">6M+</span>
-              <span className="max-w-[90px] text-xs font-medium leading-tight text-ink-soft">Documents Digitized</span>
+              <span className="max-w-[90px] text-xs font-medium leading-tight text-ink-soft">{t('home.documentsDigitized')}</span>
             </div>
             <div className="absolute -right-2 bottom-10 rounded-2xl bg-ink px-5 py-3 text-sm font-medium text-white shadow-xl sm:-right-6">
-              Growing IT Team
+              {t('home.growingItTeam')}
             </div>
           </div>
         </div>
@@ -173,7 +161,7 @@ export default function Home() {
       {/* ───────────────── Trusted partners marquee ───────────────── */}
       <section className="border-y border-ink-border bg-white py-10">
         <div className="container-x flex flex-col items-center gap-6 sm:flex-row sm:gap-10">
-          <div className="shrink-0 text-lg font-semibold text-ink-soft sm:text-xl">Trusted Partners</div>
+          <div className="shrink-0 text-lg font-semibold text-ink-soft sm:text-xl">{t('home.trustedPartners')}</div>
           <div className="relative w-full flex-1 overflow-hidden">
             <div className="flex w-max animate-marquee items-center gap-14">
               {[...clientLogos, ...clientLogos].map((n, i) => (
@@ -202,11 +190,11 @@ export default function Home() {
             />
             <div className="col-span-2 grid grid-cols-2 gap-4 sm:col-span-1 sm:grid-cols-1">
               <div className="flex flex-col items-center justify-center gap-1 rounded-2xl bg-ink px-4 py-8 text-center text-white">
-                <span className="font-title text-3xl">5+ Years</span>
-                <span className="text-sm text-white/70">of Trusted Services</span>
+                <span className="font-title text-3xl">5+ {t('home.years')}</span>
+                <span className="text-sm text-white/70">{t('home.yearsOfService')}</span>
               </div>
               <div className="flex items-center justify-center rounded-2xl bg-brand px-4 py-8 text-center text-lg font-semibold text-white">
-                Multiple Govt. Clients
+                {t('home.govtClients')}
               </div>
             </div>
             <img
@@ -217,16 +205,9 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col justify-center gap-7">
-            <span className="section-tag w-fit">Empowering Businesses with Technology</span>
-            <h2 className="font-title text-3xl leading-snug sm:text-4xl">
-              Delivering seamless scanning, secure digitalization &amp; modern software solutions.
-            </h2>
-            <p className="text-ink-muted">
-              We specialize in document scanning &amp; digitalization for government and enterprises, while also
-              offering a diverse range of products including electronics, furniture, clothing, and stationery. Our
-              new software development division is dedicated to building custom, future-ready applications that
-              help organizations grow and innovate.
-            </p>
+            <span className="section-tag w-fit">{t('home.aboutBadge')}</span>
+            <h2 className="font-title text-3xl leading-snug sm:text-4xl">{t('home.aboutHeading')}</h2>
+            <p className="text-ink-muted">{t('home.aboutParagraph')}</p>
             <ul className="grid gap-4 sm:grid-cols-2">
               {trustChecklist.map((item) => (
                 <li key={item} className="flex items-start gap-3">
@@ -238,7 +219,7 @@ export default function Home() {
               ))}
             </ul>
             <Link to="/about" className="btn-dark w-fit">
-              About More <ArrowRight size={18} />
+              {t('home.aboutMore')} <ArrowRight size={18} />
             </Link>
           </div>
         </div>
@@ -247,10 +228,8 @@ export default function Home() {
       {/* ───────────────── Services (dark section) ───────────────── */}
       <section className="w-full bg-ink py-20 text-white sm:py-24">
         <div className="container-x flex flex-col items-center text-center">
-          <span className="section-tag bg-white/10 text-brand-200">Smart Solutions, Trusted Results</span>
-          <h2 className="mt-6 max-w-3xl font-title text-3xl sm:text-5xl">
-            We specialize in the following services
-          </h2>
+          <span className="section-tag bg-white/10 text-brand-200">{t('home.servicesBadge')}</span>
+          <h2 className="mt-6 max-w-3xl font-title text-3xl sm:text-5xl">{t('home.servicesHeading')}</h2>
 
           <div className="mt-16 grid w-full grid-cols-1 gap-x-6 gap-y-14 text-left sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (
@@ -265,7 +244,7 @@ export default function Home() {
                     to="/services"
                     className="mt-5 flex items-center gap-2 text-sm font-medium text-brand transition-all duration-150 ease-in-out hover:gap-3"
                   >
-                    Know more <ArrowRight size={16} />
+                    {t('home.knowMore')} <ArrowRight size={16} />
                   </Link>
                 </div>
               </div>

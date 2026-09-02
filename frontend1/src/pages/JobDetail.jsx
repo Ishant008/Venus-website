@@ -6,6 +6,7 @@ import { ArrowLeft, MapPin, Clock, Briefcase, UploadCloud, CheckCircle2 } from '
 import api from '../lib/api';
 import SEO from '../components/common/SEO';
 import Loader from '../components/common/Loader';
+import { getRecaptchaToken } from '../lib/recaptcha';
 
 export default function JobDetail() {
   const { slug } = useParams();
@@ -32,6 +33,8 @@ export default function JobDetail() {
 
     setSubmitting(true);
     try {
+      const recaptchaToken = await getRecaptchaToken('apply_job');
+
       const fd = new FormData();
       fd.append('name', form.name);
       fd.append('email', form.email);
@@ -39,6 +42,7 @@ export default function JobDetail() {
       fd.append('message', form.message);
       fd.append('vacancyId', vacancy._id);
       fd.append('resume', resume);
+      if (recaptchaToken) fd.append('recaptchaToken', recaptchaToken);
 
       await api.post('/applicants', fd, { headers: { 'Content-Type': 'multipart/form-data' } });
       setSubmitted(true);
@@ -192,6 +196,19 @@ export default function JobDetail() {
                   <button type="submit" disabled={submitting} className="btn-primary justify-center">
                     {submitting ? 'Submitting...' : 'Submit Application'}
                   </button>
+                  {import.meta.env.VITE_RECAPTCHA_SITE_KEY && (
+                    <p className="text-center text-[11px] text-ink-muted">
+                      This site is protected by reCAPTCHA and the Google{' '}
+                      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline">
+                        Privacy Policy
+                      </a>{' '}
+                      and{' '}
+                      <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline">
+                        Terms of Service
+                      </a>{' '}
+                      apply.
+                    </p>
+                  )}
                 </form>
               )}
             </div>

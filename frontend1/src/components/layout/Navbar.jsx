@@ -1,22 +1,28 @@
 import { useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Menu, X, ShieldCheck, Download } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Menu, X, ShieldCheck, Download, Languages } from 'lucide-react';
 import { usePwaInstall } from '../../hooks/usePwaInstall';
 
-const links = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-  { to: '/products', label: 'Products' },
-  { to: '/services', label: 'Services' },
-  { to: '/news', label: 'News & Updates' },
-  { to: '/career', label: 'Career' },
-  { to: '/contact', label: 'Contact' },
-];
-
 export default function Navbar() {
+  const { t, i18n } = useTranslation();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { canInstall, promptInstall } = usePwaInstall();
+
+  const links = [
+    { to: '/', label: t('nav.home') },
+    { to: '/about', label: t('nav.about') },
+    { to: '/products', label: t('nav.products') },
+    { to: '/services', label: t('nav.services') },
+    { to: '/news', label: t('nav.news') },
+    { to: '/career', label: t('nav.career') },
+    { to: '/contact', label: t('nav.contact') },
+  ];
+
+  const toggleLanguage = () => {
+    i18n.changeLanguage(i18n.language === 'hi' ? 'en' : 'hi');
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -42,7 +48,7 @@ export default function Navbar() {
           Venus <span className="hidden text-ink-muted sm:inline">Global</span>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -58,27 +64,42 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-2.5 lg:flex">
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1.5 rounded-full border border-ink-border px-3 py-2.5 text-sm font-medium text-ink-soft transition hover:border-brand hover:text-brand"
+            title={t('common.language')}
+          >
+            <Languages size={15} /> {i18n.language === 'hi' ? 'EN' : 'हिं'}
+          </button>
           {canInstall && (
             <button onClick={promptInstall} className="btn-outline !px-4 !py-2.5 text-sm" title="Install Venus Global as an app">
-              <Download size={16} /> Install App
+              <Download size={16} /> {t('nav.installApp')}
             </button>
           )}
           <Link to="/admin/login" className="btn-outline !px-5 !py-2.5 text-sm">
-            Admin
+            {t('nav.admin')}
           </Link>
           <Link to="/contact" className="btn-primary !px-5 !py-2.5 text-sm">
-            Get in Touch
+            {t('nav.getInTouch')}
           </Link>
         </div>
 
-        <button
-          onClick={() => setOpen(true)}
-          className="rounded-full border border-ink-border p-2 lg:hidden"
-          aria-label="Open menu"
-        >
-          <Menu size={20} />
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1 rounded-full border border-ink-border px-3 py-2 text-xs font-medium text-ink-soft"
+          >
+            <Languages size={13} /> {i18n.language === 'hi' ? 'EN' : 'हिं'}
+          </button>
+          <button
+            onClick={() => setOpen(true)}
+            className="rounded-full border border-ink-border p-2"
+            aria-label="Open menu"
+          >
+            <Menu size={20} />
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -121,14 +142,14 @@ export default function Navbar() {
                 }}
                 className="btn-outline justify-center"
               >
-                <Download size={16} /> Install App
+                <Download size={16} /> {t('nav.installApp')}
               </button>
             )}
             <Link to="/admin/login" onClick={() => setOpen(false)} className="btn-outline justify-center">
-              Admin Login
+              {t('nav.adminLogin')}
             </Link>
             <Link to="/contact" onClick={() => setOpen(false)} className="btn-primary justify-center">
-              Get in Touch
+              {t('nav.getInTouch')}
             </Link>
           </nav>
         </div>

@@ -1,0 +1,73 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "services": "Services",
+    "news": "News & Updates",
+    "career": "Career",
+    "contact": "Contact",
+    "admin": "Admin",
+    "adminLogin": "Admin Login",
+    "getInTouch": "Get in Touch",
+    "installApp": "Install App"
+  },
+  "footer": {
+    "tagline": "Your trusted partner in Scanning, Digitalization & IT Solutions.",
+    "followUs": "Follow Us",
+    "quickLinks": "Quick Links",
+    "servicesHeading": "Services",
+    "contactUs": "Contact Us",
+    "copyright": "VENUS GLOBAL. All rights reserved. | Trusted Partner in Digital Transformation",
+    "servicesList": [
+      "Scanning & Digitalization",
+      "Data Management",
+      "Product Supply",
+      "IT Solutions",
+      "Software Development",
+      "Support & Maintenance"
+    ]
+  },
+  "home": {
+    "typingTexts": ["Scanning & Digitization", "Selling Quality Products", "Innovative IT Solutions"],
+    "badge": "Award-winning services",
+    "headingPrefix": "We specialize in",
+    "description": "We specialize in scanning & digitization, offer a wide range of products from furniture to clothing, and are expanding with a dynamic IT department to shape the future of technology.",
+    "exploreServices": "Explore Services",
+    "getInTouch": "Get in Touch",
+    "endToEndDigitization": "End-to-End Digitization",
+    "futureReadyIt": "Future-Ready IT Solutions",
+    "trustedPartners": "Trusted Partners",
+    "documentsDigitized": "Documents Digitized",
+    "growingItTeam": "Growing IT Team",
+    "years": "Years",
+    "yearsOfService": "of Trusted Services",
+    "govtClients": "Multiple Govt. Clients",
+    "aboutBadge": "Empowering Businesses with Technology",
+    "aboutHeading": "Delivering seamless scanning, secure digitalization & modern software solutions.",
+    "aboutParagraph": "We specialize in document scanning & digitalization for government and enterprises, while also offering a diverse range of products including electronics, furniture, clothing, and stationery. Our new software development division is dedicated to building custom, future-ready applications that help organizations grow and innovate.",
+    "aboutMore": "About More",
+    "servicesBadge": "Smart Solutions, Trusted Results",
+    "servicesHeading": "We specialize in the following services",
+    "knowMore": "Know more",
+    "trustChecklist": [
+      "Growing Software Development Team",
+      "Trusted by Government & Corporate Clients",
+      "Expertise in Scanning & Digitalization",
+      "Wide Range of Products Across Categories"
+    ],
+    "services": [
+      { "title": "Scanning & Digitization", "desc": "Converting physical files into secure, digital formats." },
+      { "title": "Data Management", "desc": "Organizing, storing & retrieving records with ease." },
+      { "title": "Product Supply", "desc": "Quality furniture, electronics, clothing & more." },
+      { "title": "Stationery & Office Needs", "desc": "Supplying everyday essentials for smooth operations." },
+      { "title": "Web Development", "desc": "Building fast, modern & user-friendly websites." },
+      { "title": "Software Development", "desc": "Custom solutions to optimize business workflows." },
+      { "title": "IT Consulting", "desc": "Helping businesses adopt the right digital strategies." },
+      { "title": "Support & Maintenance", "desc": "Reliable after-sales and technical assistance." }
+    ]
+  },
+  "common": {
+    "language": "Language"
+  }
+}
