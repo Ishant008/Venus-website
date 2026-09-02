@@ -81,6 +81,7 @@ app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/vacancies', require('./routes/vacancyRoutes'));
 app.use('/api/applicants', require('./routes/applicantRoutes'));
 app.use('/api/news', require('./routes/newsRoutes'));
+app.use('/api/analytics', require('./routes/analyticsRoutes'));
 
 app.use(notFound);
 
