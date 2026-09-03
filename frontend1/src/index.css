@@ -5,12 +5,29 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
   font-family: 'Bricolage Grotesque', sans-serif;
   color: #202124;
   overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+#root {
+  overflow-x: hidden;
+}
+
+/* Mobile-safe full-height helper — uses the "dynamic viewport height" unit
+   so the layout doesn't resize (and jump/scroll) every time a mobile
+   browser's address bar shows or hides. Falls back to 100vh for older
+   browsers that don't support dvh. */
+.min-h-screen-safe {
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .font-title {

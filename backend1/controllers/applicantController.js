@@ -23,7 +23,7 @@ const applyToVacancy = asyncHandler(async (req, res) => {
     throw new ApiError(400, 'Resume file is required');
   }
 
-  const result = await uploadBufferToCloudinary(req.file.buffer, 'resumes', 'raw');
+  const result = await uploadBufferToCloudinary(req.file.buffer, 'resumes', 'raw', req.file.originalname);
 
   const applicant = await Applicant.create({
     name,

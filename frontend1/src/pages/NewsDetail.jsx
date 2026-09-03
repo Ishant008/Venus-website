@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import api from '../lib/api';
 import SEO from '../components/common/SEO';
 import NewsImage from '../components/common/NewsImage';
+import AdSlot from '../components/common/AdSlot';
 import Loader from '../components/common/Loader';
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || '';
@@ -115,6 +116,8 @@ export default function NewsDetail() {
         <div className="lg:col-span-2">
           <p className="text-lg font-medium text-ink-soft">{item.summary}</p>
 
+          <AdSlot slot={import.meta.env.VITE_ADSENSE_SLOT_TOP} label="Advertisement" />
+
           <div
             className="prose prose-ink mt-6 max-w-none prose-headings:font-title prose-a:text-brand"
             dangerouslySetInnerHTML={{ __html: item.body }}
@@ -130,6 +133,8 @@ export default function NewsDetail() {
               ))}
             </div>
           )}
+
+          <AdSlot slot={import.meta.env.VITE_ADSENSE_SLOT_BOTTOM} label="Advertisement" />
 
           {item.tags?.length > 0 && (
             <div className="mt-8 flex flex-wrap gap-2">

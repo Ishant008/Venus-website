@@ -97,8 +97,13 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mt-4 w-full bg-ink py-4 text-center text-sm sm:mt-10 sm:text-lg">
-        &copy; {new Date().getFullYear()} {t('footer.copyright')}
+      <div className="mt-4 flex w-full flex-col items-center gap-2 bg-ink py-4 text-center text-sm sm:mt-10 sm:flex-row sm:justify-center sm:gap-4 sm:text-lg">
+        <span>
+          &copy; {new Date().getFullYear()} {t('footer.copyright')}
+        </span>
+        <Link to="/privacy-policy" className="text-xs text-white/60 underline hover:text-brand sm:text-sm">
+          Privacy Policy
+        </Link>
       </div>
     </footer>
   );

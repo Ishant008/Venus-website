@@ -1,0 +1,9 @@
+# This file is required by Google AdSense to verify ad inventory ownership.
+# After your AdSense account is approved, Google will show you the exact
+# line to add here (Account > Sites > ads.txt). It looks like:
+#
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+#
+# Replace this comment block with that real line — this file must be
+# served at https://yourdomain.com/ads.txt (exactly this path, root of
+# the domain) for AdSense revenue to be correctly attributed.

@@ -38,15 +38,37 @@ app.use(
   })
 );
 
-// CORS — allow the configured frontend origin(s), with credentials for the JWT cookie
-const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:5173').split(',').map((o) => o.trim());
+// CORS — allow the configured frontend origin(s), with credentials for the JWT cookie.
+// Automatically allows both the "www." and bare-domain variant of every origin you
+// configure — this fixes the classic "works on some devices, not others" bug where
+// FRONTEND_URL only listed one form (e.g. https://venus360.in) but visitors on the
+// other form (https://www.venus360.in) got rejected with no CORS header at all.
+const configuredOrigins = (process.env.FRONTEND_URL || 'http://localhost:5173')
+  .split(',')
+  .map((o) => o.trim().replace(/\/+$/, ''))
+  .filter(Boolean);
+
+const allowedOrigins = new Set();
+configuredOrigins.forEach((origin) => {
+  allowedOrigins.add(origin);
+  try {
+    const url = new URL(origin);
+    const altHost = url.hostname.startsWith('www.') ? url.hostname.slice(4) : `www.${url.hostname}`;
+    allowedOrigins.add(`${url.protocol}//${altHost}${url.port ? ':' + url.port : ''}`);
+  } catch {
+    // ignore malformed entries in FRONTEND_URL
+  }
+});
+
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
-      callback(new Error('Not allowed by CORS'));
+      // No origin header = same-origin request, curl, server-to-server, etc. — allow it
+      if (!origin || allowedOrigins.has(origin)) return callback(null, true);
+      callback(new Error(`Origin ${origin} is not allowed by CORS. Add it to FRONTEND_URL in the backend .env.`));
     },
     credentials: true,
+    maxAge: 600, // cache preflight for 10 minutes — short enough to avoid stale-cache surprises after redeploys
   })
 );
 

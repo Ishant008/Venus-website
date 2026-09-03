@@ -14,6 +14,7 @@ import News from './pages/News';
 import NewsDetail from './pages/NewsDetail';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import NotFound from './pages/NotFound';
 
 import AdminLogin from './pages/admin/AdminLogin';
@@ -23,6 +24,7 @@ import AdminProducts from './pages/admin/AdminProducts';
 import AdminVacancies from './pages/admin/AdminVacancies';
 import AdminApplicants from './pages/admin/AdminApplicants';
 import AdminNews from './pages/admin/AdminNews';
+import AdminAnalytics from './pages/admin/AdminAnalytics';
 import AdminSettings from './pages/admin/AdminSettings';
 
 const GSC_VERIFICATION = import.meta.env.VITE_GOOGLE_SITE_VERIFICATION;
@@ -54,6 +56,7 @@ export default function App() {
           <Route path="/news" element={<News />} />
           <Route path="/news/:slug" element={<NewsDetail />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Route>
 
@@ -66,6 +69,7 @@ export default function App() {
             <Route path="vacancies" element={<AdminVacancies />} />
             <Route path="applicants" element={<AdminApplicants />} />
             <Route path="news" element={<AdminNews />} />
+            <Route path="analytics" element={<AdminAnalytics />} />
             <Route path="settings" element={<AdminSettings />} />
           </Route>
         </Route>
